@@ -12,7 +12,7 @@ Tango Viajes fue desarrollada utilizando tecnologías de vanguardia para ofrecer
 
 - **Front-end:**
 
-<img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/bootstrap-4.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/rxjs-1.svg" width="40" height="40"/> <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white"/>
+<img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/bootstrap-4.svg" width="40" height="40"/> <img src="https://portfolio-v2-five-zeta.vercel.app/assets/img/primeng-logo.png" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/rxjs-1.svg" width="40" height="40"/> <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white"/>
 
 - **Back-end:** 
 
