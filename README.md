@@ -1,12 +1,14 @@
 # C11-16-FT-JavaAngular
 
-#### **NOMBREDELPROYECTO** 
+#### **Tango Viajes** 
 
-Descripción del proyecto...
+Bienvenido a Tango Viajes, tu destino único para planificar y reservar tus próximas aventuras. Con nuestra plataforma en línea, hemos creado una experiencia de compra de paquetes de viaje que te permitirá explorar el mundo con comodidad y estilo. Ya sea que estés buscando vuelos, colectivos o trenes, estamos aquí para hacer que tu viaje sea inolvidable.
+
+En Tango Viajes, entendemos que cada viajero es único y tiene diferentes necesidades y preferencias. Es por eso que hemos reunido una amplia selección de opciones de viaje para satisfacer todos los gustos y presupuestos. Ya sea que sueñes con recorrer exóticas playas, sumergirte en culturas vibrantes o aventurarte en lugares remotos, encontrarás todo lo que necesitas aquí mismo.
 
 ## Tecnologías utilizadas 💻
 
-NOMBREDELPROYECTO fue desarrollada utilizando tecnologías de vanguardia para ofrecer una experiencia de usuario excepcional:
+Tango Viajes fue desarrollada utilizando tecnologías de vanguardia para ofrecer una experiencia de usuario excepcional:
 
 - **Front-end:**
 
