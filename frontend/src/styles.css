@@ -1,8 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --red-color: rgba(250, 100, 110, 0.7);
+  --background-color: rgba(222, 236, 240, 0.8);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.title {
+  font-family: "Murecho", sans-serif;
+}
+
+a,
+button {
+  cursor: pointer;
 }

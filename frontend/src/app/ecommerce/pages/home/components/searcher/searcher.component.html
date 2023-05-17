@@ -1,0 +1,54 @@
+<section class="searcher__container">
+  <article class="buttons__container">
+    <button class="searcher__button active">En avión</button>
+    <button class="searcher__button">En micro</button>
+    <button class="searcher__button">En tren</button>
+  </article>
+
+  <form
+    (ngSubmit)="searchTravel()"
+    [formGroup]="formData"
+    class="form__container"
+  >
+    <div class="form__content">
+      <label for="desde">Desde</label>
+
+      <div class="select">
+        <select name="from" id="" formControlName="from">
+          <option value="" selected>Seleccione un país</option>
+          <option [value]="option.value" *ngFor="let option of cities">
+            {{ option.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form__content">
+      <label for="hasta">Hasta</label>
+
+      <div class="select">
+        <select name="to" id="" formControlName="to">
+          <option value="" selected>Seleccione un país</option>
+          <option [value]="option.value" *ngFor="let option of cities">
+            {{ option.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form__content">
+      <label for="fecha">Fecha</label>
+
+      <form>
+        <p-calendar
+          formControlName="date"
+          [showIcon]="true"
+          [minDate]="minDate"
+          dateFormat="dd/mm/yy"
+        ></p-calendar>
+      </form>
+    </div>
+
+    <button class="seacrh__button">Buscar</button>
+  </form>
+</section>

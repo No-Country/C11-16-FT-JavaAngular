@@ -1,0 +1,39 @@
+.hero__container {
+  width: 100%;
+  height: calc(100vh - 96px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../../../../assets/images/hero.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.hero__text,
+.searcher {
+  width: 95%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 55px;
+  font-size: 2rem;
+}
+
+.searcher {
+}
+
+.title {
+  font-size: 2.5em;
+  font-weight: normal;
+}
+
+.subtitle {
+  font-size: 1.5em;
+}
