@@ -15,8 +15,8 @@ public class Empresa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private List<Usuario> administradores;
-    private String nombre;
-    private String numero_contacto;
-    private List<String> links_contacto;
+    private List<User> admins;
+    private String name;
+    private String contact_number;
+    private List<String> contact_links;
 }

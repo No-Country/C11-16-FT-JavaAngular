@@ -14,9 +14,9 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private Usuario usuario;
+    private User user;
     @Column(nullable = false)
-    private Long id_viaje;
-    private Long estado;
-    private Integer asiento;
+    private Long id_travel;
+    private Long status;
+    private Integer seat;
 }

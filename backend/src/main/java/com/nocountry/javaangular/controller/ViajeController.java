@@ -1,5 +1,5 @@
 package com.nocountry.javaangular.controller;
-import com.nocountry.javaangular.domain.Travel;
+import com.nocountry.javaangular.domain.Viaje;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,15 +11,15 @@ import java.util.List;
 @RequestMapping("/viaje")
 public class ViajeController {
     @GetMapping("/todos")
-    public List<Travel> ObtenerTodos(){
+    public List<Viaje> ObtenerTodos(){
         return null;
     }
     @GetMapping("/{id}")
-    public Travel ObtenerPorId(@PathVariable Long id){
+    public Viaje ObtenerPorId(@PathVariable Long id){
         return null;
     }
     @GetMapping("/{keyword}")
-    public List<Travel> ObtenerPorDestino(@PathVariable String keyword){
+    public List<Viaje> ObtenerPorDestino(@PathVariable String keyword){
         return null;
     }
 }

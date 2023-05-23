@@ -15,8 +15,8 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
-    private Long id_usuario;
-    private String contenido;
+    private Long id_user;
+    private String content;
     private Double rating;
-    private LocalDate fecha;
+    private LocalDate posted_date;
 }
