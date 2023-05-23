@@ -23,8 +23,8 @@ public class Usuario {
     private String dni;
     private String pais;
     private LocalDate fecha_nacimiento;
-    private List<Viaje> favoritos;
-    private List<Viaje> mis_viajes;
+    private List<Travel> favoritos;
+    private List<Travel> mis_travels;
     private String imagen_perfil;
     private Boolean es_admin;
 }
