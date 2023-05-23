@@ -1,1 +1,31 @@
-<p>header works!</p>
+<header>
+  <div class="header__container">
+    <p class="header__logo" [routerLink]="['']">Tango Viajes</p>
+
+    <nav>
+      <ul class="header__menu">
+        <li
+          class="header__menu--list"
+          *ngFor="let item of navItem"
+          [routerLink]="[item.link]"
+          routerLinkActive="activeRoute"
+        >
+          {{ item.name | titlecase }}
+        </li>
+      </ul>
+    </nav>
+
+    <button class="header__auth--buton">
+      Ingresar <i class="pi pi-user"></i>
+    </button>
+  </div>
+
+  <form>
+    <label for="searchTravelHeader">¿A dónde te gustaría viajar?</label>
+    <input
+      type="text"
+      id="searchTravelHeader"
+      placeholder="Buscar por palabra, ej: Salta"
+    />
+  </form>
+</header>

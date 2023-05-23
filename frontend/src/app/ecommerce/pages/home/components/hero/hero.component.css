@@ -1,6 +1,6 @@
 .hero__container {
   width: 100%;
-  height: calc(100vh - 96px);
+  height: calc(100vh - 176px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 55px;
+  /* gap: 55px; */
   font-size: 2rem;
 }
 
@@ -31,7 +31,7 @@
 
 .title {
   font-size: 2.5em;
-  font-weight: normal;
+  font-weight: 800;
 }
 
 .subtitle {

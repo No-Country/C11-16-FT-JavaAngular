@@ -1,0 +1,11 @@
+<section class="popular__container">
+  <h2>Los más elegidos</h2>
+
+  <article class="popular__content">
+    <div class="popular__card" *ngFor="let item of popular">
+      <img [src]="item.img" alt="" />
+      <p>{{ item.title }}</p>
+      <div class="effect"></div>
+    </div>
+  </article>
+</section>

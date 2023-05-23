@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
-import { MultiSelectModule } from 'primeng/multiselect';
 import { CalendarModule } from 'primeng/calendar';
-import { DropdownModule } from 'primeng/dropdown';
+import { RatingModule } from 'primeng/rating';
 
 @NgModule({
-  exports: [MultiSelectModule, CalendarModule, DropdownModule],
+  exports: [CalendarModule, RatingModule],
 })
 export class PrimeNgModule {}
