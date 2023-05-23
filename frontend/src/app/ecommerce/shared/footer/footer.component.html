@@ -1,1 +1,54 @@
-<p>footer works!</p>
+<footer>
+  <section class="footer__container">
+    <article class="footer__contact">
+      <h3 class="footer__title">Tango Viajes</h3>
+
+      <ul class="footer__redes">
+        <li *ngFor="let item of redes">
+          <i [class]="item.icon" [title]="item.name"></i>
+        </li>
+      </ul>
+
+      <div class="contact">
+        <h4>Para atención personalizada</h4>
+        <p>+54 011 79797979</p>
+        <p>Calle Falsa 123, Buenos Aires</p>
+        <p>1168, Argentina</p>
+      </div>
+    </article>
+
+    <article class="">
+      <h4 class="footer__subtitle">Mi cuenta</h4>
+
+      <p class="click">Ingresar</p>
+      <p class="click">Registrarse</p>
+    </article>
+
+    <article>
+      <h4 class="footer__subtitle">Ayuda</h4>
+
+      <p class="click">Preguntas frecuentes</p>
+      <p class="click">Políticas de compra</p>
+    </article>
+
+    <article>
+      <h4 class="footer__subtitle">Categorías</h4>
+
+      <p class="click">Los más elegidos</p>
+      <p class="click">Filtros por precio</p>
+      <p class="click">Filtros por destino</p>
+    </article>
+
+    <article>
+      <h4 class="footer__subtitle">Legales</h4>
+
+      <p class="click">Defensa al consumidor</p>
+      <p class="click">Términos y condiciones</p>
+      <p class="click">Políticas de privacidad</p>
+    </article>
+  </section>
+
+  <p class="copy">
+    &copy; {{ date }} Tango Viajes. Todos los derechos reservados.
+  </p>
+</footer>

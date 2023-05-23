@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
 :root {
-  --red-color: rgba(250, 100, 110, 0.7);
-  --background-color: rgba(222, 236, 240, 0.8);
+  --primary-color: rgba(7, 72, 74, 0.8) !important;
+  --secondary-color: #f9d9da !important;
+  --border-color: #979797;
+  --text-color-secondary: #ffffff !important;
+  --text-color-black: #000 !important;
+  --header-color: #07484a;
 }
 
 * {
@@ -13,11 +19,7 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-}
-
-.title {
-  font-family: "Murecho", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 a,

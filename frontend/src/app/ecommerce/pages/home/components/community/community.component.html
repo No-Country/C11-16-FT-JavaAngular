@@ -1,0 +1,22 @@
+<section class="community__container">
+  <h2>Sumate a nuestra comunidad de viajeros</h2>
+
+  <article class="community__content keen-slider" #sliderRef>
+    <div
+      class="keen-slider__slide community__card"
+      *ngFor="let item of travellers"
+    >
+      <img [src]="item.img" alt="Viajeros" />
+
+      <div class="card__content">
+        <span class="card__date">{{ item.date }}</span>
+        <app-rating [rating]="item.rating"></app-rating>
+        <p>
+          <span class="card__info--bold">{{ item.name }}</span> sobre
+          <span class="card__info--bold">{{ item.ubication }}</span>
+        </p>
+        <p>"{{ item.description }}"</p>
+      </div>
+    </div>
+  </article>
+</section>

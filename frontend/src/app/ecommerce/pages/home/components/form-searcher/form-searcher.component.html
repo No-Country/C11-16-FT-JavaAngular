@@ -1,0 +1,47 @@
+<form
+  (ngSubmit)="searchTravel()"
+  [formGroup]="formData"
+  class="form__container"
+>
+  <div class="form__content">
+    <label for="desde">Desde</label>
+
+    <div class="select">
+      <select name="from" id="" formControlName="from">
+        <option value="" selected>Seleccione una provincia</option>
+        <option [value]="option.value" *ngFor="let option of cities">
+          {{ option.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form__content">
+    <label for="hasta">Hasta</label>
+
+    <div class="select">
+      <select name="to" id="" formControlName="to">
+        <option value="" selected>Seleccione una provincia</option>
+        <option [value]="option.value" *ngFor="let option of cities">
+          {{ option.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form__content">
+    <label for="fecha">Fecha</label>
+
+    <p-calendar
+      formControlName="date"
+      [showIcon]="true"
+      [minDate]="minDate"
+      dateFormat="dd/mm/yy"
+      [showTime]="true"
+    ></p-calendar>
+
+    <!-- <input type="datetime-local" name="" id="" /> -->
+  </div>
+
+  <button class="seacrh__button">Buscar</button>
+</form>

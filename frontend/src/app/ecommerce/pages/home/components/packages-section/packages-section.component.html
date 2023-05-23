@@ -1,0 +1,14 @@
+<div class="keen-slider" #sliderRef>
+  <div class="keen-slider__slide slider__card" *ngFor="let item of package">
+    <img [src]="item.img" alt="" />
+    <div class="card__content">
+      <p>
+        {{ item.description }}
+      </p>
+
+      <button>Ver paquetes</button>
+    </div>
+
+    <div class="efect__image"></div>
+  </div>
+</div>
