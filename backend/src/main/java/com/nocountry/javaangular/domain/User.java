@@ -15,7 +15,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private List<Pedido> pedidos;
+    private List<Order> orders;
     private String email;
     private String password;
     private String name;
@@ -23,8 +23,8 @@ public class User {
     private String dni;
     private String country;
     private LocalDate birth_date;
-    private List<Viaje> favorites;
-    private List<Viaje> my_travels;
+    private List<Trip> favorites;
+    private List<Trip> my_travels;
     private String profile_picture;
     private Boolean is_admin;
 }
