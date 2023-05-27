@@ -15,8 +15,17 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private List<User> admins;
     private String name;
     private String contact_number;
+    
+    @ElementCollection
     private List<String> contact_links;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_admins")
+    private List<Client> admins;
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_reviews")
+    private List<Review> reviews;
 }

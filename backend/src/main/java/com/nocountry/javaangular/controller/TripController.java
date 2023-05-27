@@ -1,6 +1,6 @@
 package com.nocountry.javaangular.controller;
 import com.nocountry.javaangular.domain.Trip;
-import com.nocountry.javaangular.domain.User;
+import com.nocountry.javaangular.domain.Client;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,10 +21,10 @@ public class TripController {
         return null;
     }
     @PutMapping("/{id}")
-    public void modifyTrip(@RequestBody User newUser){
+    public void modifyTrip(@RequestBody Client newUser){
     }
     @PostMapping("/")
-    public void registerNewTrip(@RequestBody User newUser){
+    public void registerNewTrip(@RequestBody Client newUser){
     }
     @DeleteMapping("/{id}")
     public void deleteTrip(@PathVariable Long id){

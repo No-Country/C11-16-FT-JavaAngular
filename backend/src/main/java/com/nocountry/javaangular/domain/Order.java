@@ -1,4 +1,5 @@
 package com.nocountry.javaangular.domain;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,10 +14,18 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private User user;
-    @Column(nullable = false)
-    private Long id_trip;
-    private Long status;
+    private String status;
     private Integer seat;
+	private String payment_status;
+	private String payment_method;
+	private double taxes;
+	private double final_price;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_client")
+    private Client client;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_trip")
+    private Trip trip;
 }

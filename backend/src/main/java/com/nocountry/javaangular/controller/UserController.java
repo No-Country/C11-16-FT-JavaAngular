@@ -1,7 +1,6 @@
 package com.nocountry.javaangular.controller;
-import com.nocountry.javaangular.domain.Order;
 import com.nocountry.javaangular.domain.Trip;
-import com.nocountry.javaangular.domain.User;
+import com.nocountry.javaangular.domain.Client;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,10 +12,10 @@ public class UserController {
     public List<Trip> getById(@PathVariable Long id){
         return null;
     }
-    @GetMapping("/{id}")
-    public void modifyUser(@PathVariable Long id){
-    }
+//    @GetMapping("/{id}")
+//    public void modifyUser(@PathVariable Long id){
+//    }
     @GetMapping("/")
-    public void registerUser(@RequestBody User newUser){
+    public void registerUser(@RequestBody Client newUser){
     }
 }
