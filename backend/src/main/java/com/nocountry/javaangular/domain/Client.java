@@ -32,15 +32,18 @@ public class Client {
     
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_favorites")
+    //@JoinColumn(name = "id_favorites")
     private List<Trip> favorites;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_my_travels")
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    //@JoinColumn(name = "id_my_travels")
     private List<Trip> my_travels;
-    
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_orders")
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Company company;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "client")
+    //@JoinColumn(name = "id_orders")
     private List<Order> orders;
     
 //	@OneToMany(mappedBy = "admins")

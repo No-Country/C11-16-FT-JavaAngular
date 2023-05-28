@@ -25,9 +25,9 @@ public class Review {
     private LocalDate posted_date;
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_client")
+   // @JoinColumn(name = "id_client")
     private Client client;
-    
-//	@OneToMany(mappedBy = "reviews")
-//	private List<Company> reviews;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Company company;
 }

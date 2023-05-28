@@ -33,19 +33,16 @@ public class Trip {
     private Boolean allows_cancel;
     private String image;
     private Integer available_seats;
-    
+
     private List<Integer> taken_seats;
-    
     private List<Integer> seats;
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_company")
+    //@JoinColumn(name = "id_company")
     private Company company;
-    
-//	@OneToMany(mappedBy = "my_travels")
-//	private List<Client> my_travels;
-//	
-//	@OneToMany(mappedBy = "favorites")
-//	private List<Client> favorites;
-    
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "favorites")
+    private List<Client> client_favorites;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "my_travels")
+    private List<Client> client_mytrips;
 }
