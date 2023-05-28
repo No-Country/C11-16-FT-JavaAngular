@@ -17,15 +17,14 @@ public class Company {
     private Long id;
     private String name;
     private String contact_number;
-    
-    @ElementCollection
+
     private List<String> contact_links;
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_admins")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
+    //@JoinColumn(name = "id-admins")
     private List<Client> admins;
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_reviews")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
+    //@JoinColumn(name = "id_reviews")
     private List<Review> reviews;
 }
