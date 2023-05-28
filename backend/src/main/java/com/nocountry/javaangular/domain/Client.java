@@ -17,7 +17,8 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_client")
+    private Long idClient;
     private String email;
     private String password;
     private String name;
@@ -28,6 +29,7 @@ public class Client {
     private LocalDate birth_date;
     private String profile_picture;
     private Boolean is_admin;
+    
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_favorites")
@@ -40,4 +42,21 @@ public class Client {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_orders")
     private List<Order> orders;
+    
+//	@OneToMany(mappedBy = "admins")
+//	private List<Company> admins;
+//	
+//	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JoinColumn(name = "id_my_travels")
+//	private Trip my_travels;
+//	
+//	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JoinColumn(name = "id_favorites")
+//	private Trip favorites;
+//	
+//	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JoinColumn(name = "id_orders")
+//	private Order orders;
+//    
+    
 }

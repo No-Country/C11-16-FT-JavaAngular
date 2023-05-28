@@ -14,11 +14,10 @@ import java.util.List;
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_company")
+    private Long idCompany;
     private String name;
     private String contact_number;
-    
-    @ElementCollection
     private List<String> contact_links;
     
     @OneToMany(cascade = CascadeType.ALL)
@@ -28,4 +27,21 @@ public class Company {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_reviews")
     private List<Review> reviews;
+    
+//	@ManyToOne
+//	@JoinColumn(
+//			name = "id_admins",
+//			nullable =  false,
+//			foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(id_admins) references clients (id_client)")
+//	)
+//	private Client client;
+	
+//  @ManyToOne(cascade = CascadeType.ALL)
+//  @JoinColumn(name = "id_admins")
+//  private Client admins;
+//  
+//  @ManyToOne(cascade = CascadeType.ALL)
+//  @JoinColumn(name = "id_reviews")
+//  private Review reviews;
+//    
 }

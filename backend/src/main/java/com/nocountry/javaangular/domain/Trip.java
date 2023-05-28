@@ -17,7 +17,8 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_trip")
+    private Long idTrip;
     private String type;
     private String status;
     private String origin;
@@ -33,14 +34,18 @@ public class Trip {
     private String image;
     private Integer available_seats;
     
-    @ElementCollection
     private List<Integer> taken_seats;
     
-    @ElementCollection
     private List<Integer> seats;
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_company")
     private Company company;
+    
+//	@OneToMany(mappedBy = "my_travels")
+//	private List<Client> my_travels;
+//	
+//	@OneToMany(mappedBy = "favorites")
+//	private List<Client> favorites;
     
 }
