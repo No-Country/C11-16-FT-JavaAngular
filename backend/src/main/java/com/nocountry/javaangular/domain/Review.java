@@ -17,15 +17,13 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_review")
-    private Long idReview;
+    private Long id;
     private String content;
     private Double rating;
     @DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
     private LocalDate posted_date;
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-   // @JoinColumn(name = "id_client")
     private Client client;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

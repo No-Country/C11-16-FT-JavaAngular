@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class ClientController {
     @GetMapping("/{id}")
     public List<Trip> getById(@PathVariable Long id){
         return null;

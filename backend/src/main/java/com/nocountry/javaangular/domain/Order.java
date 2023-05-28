@@ -15,8 +15,7 @@ import lombok.NoArgsConstructor;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_order")
-    private Long idOrder;
+    private Long id;
     private String status;
     private Integer seat;
 	private String payment_status;
@@ -25,14 +24,9 @@ public class Order {
 	private double final_price;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "id_client") se hace por defecto
     private Client client;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "id_trip")
     private Trip trip;
-    
-//	@OneToMany(mappedBy = "orders")
-//	private List<Client> orders;
-	
+    	
 }

@@ -17,8 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_trip")
-    private Long idTrip;
+    private Long id;
     private String type;
     private String status;
     private String origin;
@@ -38,11 +37,11 @@ public class Trip {
     private List<Integer> seats;
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "id_company")
     private Company company;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "favorites")
     private List<Client> client_favorites;
+    
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "my_travels")
     private List<Client> client_mytrips;
 }
