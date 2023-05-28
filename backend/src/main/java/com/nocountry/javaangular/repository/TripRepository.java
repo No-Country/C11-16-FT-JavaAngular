@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface TripRepository extends JpaRepository<Trip,Long> {
     @Query("SELECT c FROM Trip c WHERE c.destination LIKE CONCAT('%',?1,'%')")
-    List<Trip> getByDestination(@PathVariable String keyword);
+    List<Trip> getByDestination(@PathVariable String destination);
 }

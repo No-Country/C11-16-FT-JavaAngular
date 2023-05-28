@@ -13,29 +13,29 @@ import java.util.Optional;
 @RequestMapping("/trip")
 @AllArgsConstructor
 public class TripController {
-    private final TripServiceImpl service;
+    private final TripServiceImpl tripServiceImpl;
     @GetMapping("/all")
     public List<Trip> getAll(){
-        return service.getAll();
+        return tripServiceImpl.getAll();
     }
     @GetMapping("/id/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
-        return service.getById(id);
+        return tripServiceImpl.getById(id);
     }
     @GetMapping("/{keyword}")
-    public List<Trip> getByDestination(@PathVariable String keyword){
-        return service.getByDestination(keyword);
+    public List<Trip> getByDestination(@PathVariable String destination){
+        return tripServiceImpl.getByDestination(destination);
     }
     @PutMapping("/{id}")
     public ResponseEntity<Trip> modifyTrip(@RequestBody Trip tripupdate,@PathVariable Long id){
-        return service.modifyTrip(tripupdate,id);
+        return tripServiceImpl.modifyTrip(tripupdate,id);
     }
     @PostMapping("/")
     public ResponseEntity<Trip> registerNewTrip(@RequestBody Trip newtrip){
-        return service.registerNewTrip(newtrip);
+        return tripServiceImpl.registerNewTrip(newtrip);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Trip> deleteTrip(@PathVariable Long id){
-        return service.deleteTrip(id);
+        return tripServiceImpl.deleteTrip(id);
     }
 }

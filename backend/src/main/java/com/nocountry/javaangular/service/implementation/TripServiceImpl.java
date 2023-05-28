@@ -31,8 +31,8 @@ public class TripServiceImpl  implements TripService {
         return ResponseEntity.ok(result);
     }
     @Override
-    public List<Trip> getByDestination(String keyword) {
-        List<Trip> results = repository.getByDestination(keyword);
+    public List<Trip> getByDestination(String destination) {
+        List<Trip> results = repository.getByDestination(destination);
         if(results.isEmpty()){
             return null;
         }
