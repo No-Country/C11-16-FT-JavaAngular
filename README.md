@@ -78,6 +78,9 @@ El equipo detrás de NOMBREDELPROYECTO está conformado por talentosos profesion
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white)
 ![Adobe Color](https://img.shields.io/badge/Adobe_Color-FF0000?style=for-the-badge&logo=Adobe-Color&logoColor=white)
 ![Design Thinking](https://img.shields.io/badge/Design_Thinking-FF4088?style=for-the-badge&logo=Design-Thinking&logoColor=white)
+![Whimsical](https://img.shields.io/badge/Whimsical-8313DD?style=for-the-badge&logo=Whimsical&logoColor=white)
+![Optimal Workshop](https://img.shields.io/badge/Optimal_Workshop-FFD600?style=for-the-badge&logo=Optimal-Workshop&logoColor=white)
+![Figjam](https://img.shields.io/badge/Figjam-F0E3FF?style=for-the-badge&logo=Figjam&logoColor=white)
 
 #### 🧑‍💻 Designers:
 
