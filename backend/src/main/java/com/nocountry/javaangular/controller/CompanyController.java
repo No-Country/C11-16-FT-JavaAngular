@@ -20,13 +20,6 @@ public class CompanyController {
         return companyServiceImp.getAllCompanies();
     }
 
-    // ------------ should ignore this endpoint
-    @GetMapping("/reviews/{id}")
-    public List<Review> getAllReviews(@PathVariable Long id){
-        return companyServiceImp.getAllReviews(id);
-    }
-    // ------------
-
     @GetMapping("/{id}")
     public Optional<Company> getById(@PathVariable Long id){
         return companyServiceImp.getCompanyById(id);
