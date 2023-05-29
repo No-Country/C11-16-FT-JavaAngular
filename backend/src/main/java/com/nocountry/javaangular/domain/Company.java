@@ -1,10 +1,13 @@
 package com.nocountry.javaangular.domain;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -21,10 +24,8 @@ public class Company {
     private List<String> contact_links;
     
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
-    //@JoinColumn(name = "id-admins")
     private List<Client> admins;
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
-    //@JoinColumn(name = "id_reviews")
+    @OneToMany(mappedBy = "company")
     private List<Review> reviews;
 }
