@@ -81,7 +81,7 @@ El equipo detrás de NOMBREDELPROYECTO está conformado por talentosos profesion
 
 #### 🧑‍💻 Designers:
 
-| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png](https://mir-s3-cdn-cf.behance.net/user/115/2d4aa11190214075.636a5808e3c72.jpg" width=50>|
+| <img src="https://cdn.discordapp.com/attachments/442011718235848707/1112810902182432858/2d4aa11190214075.png" width=50>|
 |:-:|
 | **Melisa Braslavsky**|
 | <a href="https://www.behance.net/melisabraslav"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/melisa-braslavsky/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
