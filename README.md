@@ -21,7 +21,7 @@ Tango Viajes fue desarrollada utilizando tecnologías de vanguardia para ofrecer
 
 ## Colaboradores 👥
 
-El equipo detrás de NOMBREDELPROYECTO está conformado por talentosos profesionales dedicados a ofrecer la mejor experiencia posible a nuestros usuarios:
+El equipo detrás de Tango Viajes está conformado por talentosos profesionales dedicados a ofrecer la mejor experiencia posible a nuestros usuarios:
 
 
 ### ⚡ Links del Proyecto:
