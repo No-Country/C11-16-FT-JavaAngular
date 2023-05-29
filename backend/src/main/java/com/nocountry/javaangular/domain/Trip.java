@@ -37,7 +37,6 @@ public class Trip {
     private List<Integer> seats;
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "id_company")
     private Company company;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "favorites")
