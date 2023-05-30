@@ -41,6 +41,7 @@ public class Trip {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "favorites")
     private List<Client> client_favorites;
+    
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "my_travels")
     private List<Client> client_mytrips;
 }

@@ -20,12 +20,12 @@ public class Company {
     private Long id;
     private String name;
     private String contact_number;
-
     private List<String> contact_links;
     
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
     private List<Client> admins;
     
-    @OneToMany(mappedBy = "company")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
     private List<Review> reviews;
+     
 }

@@ -1,5 +1,7 @@
 package com.nocountry.javaangular.domain;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,4 +28,5 @@ public class Order {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Trip trip;
+    	
 }
