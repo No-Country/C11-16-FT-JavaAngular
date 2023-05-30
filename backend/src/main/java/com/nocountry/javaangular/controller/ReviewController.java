@@ -1,21 +1,31 @@
 package com.nocountry.javaangular.controller;
 
-import com.nocountry.javaangular.domain.Trip;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.nocountry.javaangular.domain.Review;
+import com.nocountry.javaangular.service.implementation.ReviewServiceImp;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/reviews")
+@RequestMapping("/review")
 public class ReviewController {
+
+    @Autowired
+    private ReviewServiceImp reviewServiceImp;
+
     @GetMapping("/all")
-    public List<Trip> getAll(){
+    public List<Review> getAll(){
+        return reviewServiceImp.getAllReviews();
+    }
+
+    @GetMapping("/nine")
+    public List<Review> getNine(){
         return null;
     }
-    @GetMapping("/nine")
-    public List<Trip> getNine(){
-        return null;
+
+    @PostMapping("/{company_id}")
+    public void createReview(@PathVariable Long company_id, @RequestBody Review review) {
+        reviewServiceImp.createReview(company_id, review);
     }
 }

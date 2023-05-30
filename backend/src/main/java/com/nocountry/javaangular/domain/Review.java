@@ -1,4 +1,5 @@
 package com.nocountry.javaangular.domain;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

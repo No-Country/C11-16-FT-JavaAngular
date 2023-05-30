@@ -22,7 +22,7 @@ public class Order {
 	private String payment_method;
 	private double taxes;
 	private double final_price;
-    
+
     @ManyToOne(cascade = CascadeType.ALL)
     private Client client;
 
