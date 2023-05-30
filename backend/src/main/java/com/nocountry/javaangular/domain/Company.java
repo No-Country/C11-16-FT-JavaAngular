@@ -4,10 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
 
 import java.util.List;
-import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -25,7 +23,8 @@ public class Company {
     
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
     private List<Client> admins;
-    
+
+
     @OneToMany(mappedBy = "company")
     private List<Review> reviews;
 }
