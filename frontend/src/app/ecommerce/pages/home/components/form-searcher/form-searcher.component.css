@@ -39,7 +39,6 @@ select {
   font-size: 1em;
   font-family: "Open Sans", sans-serif;
 }
-
 select::-ms-expand {
   display: none;
 }
@@ -55,8 +54,8 @@ select::-ms-expand {
 .select::after {
   content: url("../../../../../../assets/images/chevron-down.svg");
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 12px;
+  right: 10px;
   cursor: pointer;
   pointer-events: none;
   transition: 0.25s all ease;

@@ -1,9 +1,21 @@
 <div class="card flex justify-content-center">
   <form [formGroup]="formGroup">
-    <p-rating
-      formControlName="value"
-      [cancel]="false"
-      [readonly]="true"
-    ></p-rating>
+    <p-rating formControlName="value" [cancel]="false" [readonly]="true">
+      <ng-template pTemplate="onicon">
+        <img
+          src="../../../../../../assets/images/rating2.svg"
+          width="20px"
+          height="20px"
+        />
+      </ng-template>
+      <ng-template pTemplate="officon">
+        <img
+          src="../../../../../../assets/images/rating.svg"
+          width="20px"
+          height="20px"
+        />
+      </ng-template>
+      ></p-rating
+    >
   </form>
 </div>

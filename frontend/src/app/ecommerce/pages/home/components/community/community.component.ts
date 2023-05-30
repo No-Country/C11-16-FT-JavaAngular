@@ -26,10 +26,9 @@ const animation = { duration: 25000, easing: (t: any) => t };
   styleUrls: ['./community.component.css'],
 })
 export class CommunityComponent implements AfterViewInit, OnDestroy {
+  @Input() travellers!: Travellers[];
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   slider!: KeenSliderInstance;
-
-  @Input() travellers!: Travellers[];
 
   ngAfterViewInit() {
     this.slider = new KeenSlider(this.sliderRef.nativeElement, {

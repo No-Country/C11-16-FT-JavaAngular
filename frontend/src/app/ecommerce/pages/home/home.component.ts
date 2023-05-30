@@ -41,14 +41,14 @@ export class HomeComponent {
       id: 2,
       title: 'Cataratas del Iguazú',
       description:
-        'Las Cataratas del Iguazú te espera, encontrá la mejor opción para visitarlo.',
+        'Conocé Las Cataratas del Iguazú en cualquier época del año.',
       img: '../../../../../../assets/images/cataratas.jpg',
     },
     {
       id: 3,
       title: 'Glaciar Perito Moreno',
       description:
-        'El Glaciar Perito Moreno te espera, encontrá la mejor opción para visitarlo.',
+        'El Glaciar Perito Moreno, una experiencia única que no te podés perder.',
       img: '../../../../../../assets/images/glaciar.jpg',
     },
   ];
