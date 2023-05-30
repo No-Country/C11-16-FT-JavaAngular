@@ -42,6 +42,7 @@ public class Trip {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "favorites")
     @JoinColumn(name = "client_favorites_id", insertable = false, updatable = false)
     private List<Client> client_favorites;
+    
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "my_travels")
     @JoinColumn(name = "client_mytrips_id", insertable = false, updatable = false)
     private List<Client> client_mytrips;

@@ -21,7 +21,7 @@ Tango Viajes fue desarrollada utilizando tecnologías de vanguardia para ofrecer
 
 ## Colaboradores 👥
 
-El equipo detrás de NOMBREDELPROYECTO está conformado por talentosos profesionales dedicados a ofrecer la mejor experiencia posible a nuestros usuarios:
+El equipo detrás de Tango Viajes está conformado por talentosos profesionales dedicados a ofrecer la mejor experiencia posible a nuestros usuarios:
 
 
 ### ⚡ Links del Proyecto:
@@ -78,13 +78,16 @@ El equipo detrás de NOMBREDELPROYECTO está conformado por talentosos profesion
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white)
 ![Adobe Color](https://img.shields.io/badge/Adobe_Color-FF0000?style=for-the-badge&logo=Adobe-Color&logoColor=white)
 ![Design Thinking](https://img.shields.io/badge/Design_Thinking-FF4088?style=for-the-badge&logo=Design-Thinking&logoColor=white)
+![Whimsical](https://img.shields.io/badge/Whimsical-8313DD?style=for-the-badge&logo=Whimsical&logoColor=white)
+![Optimal Workshop](https://img.shields.io/badge/Optimal_Workshop-FFD600?style=for-the-badge&logo=Optimal-Workshop&logoColor=white)
+![Figjam](https://img.shields.io/badge/Figjam-F0E3FF?style=for-the-badge&logo=Figjam&logoColor=white)
 
 #### 🧑‍💻 Designers:
 
-| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|
+| <img src="https://cdn.discordapp.com/attachments/442011718235848707/1112810902182432858/2d4aa11190214075.png" width=50>|
 |:-:|
 | **Melisa Braslavsky**|
-| <a href="#"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <a href="https://www.behance.net/melisabraslav"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/melisa-braslavsky/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 <hr/>
 
