@@ -22,10 +22,8 @@ public class Order {
 	private double final_price;
     
     @ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "id_client") se hace por defecto
     private Client client;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "id_trip")
     private Trip trip;
 }

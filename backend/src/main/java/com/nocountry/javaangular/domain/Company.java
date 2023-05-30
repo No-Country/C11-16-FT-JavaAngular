@@ -21,10 +21,8 @@ public class Company {
     private List<String> contact_links;
     
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
-    //@JoinColumn(name = "id-admins")
     private List<Client> admins;
     
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
-    //@JoinColumn(name = "id_reviews")
     private List<Review> reviews;
 }

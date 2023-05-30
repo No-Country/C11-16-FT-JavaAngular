@@ -24,7 +24,6 @@ public class Review {
     
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-   // @JoinColumn(name = "id_client")
     private Client client;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

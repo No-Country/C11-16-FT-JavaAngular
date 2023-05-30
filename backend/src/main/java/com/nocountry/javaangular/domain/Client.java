@@ -30,17 +30,14 @@ public class Client {
     private Boolean is_admin;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //s@JoinColumn(name = "id_favorites")
     private List<Trip> favorites;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "id_my_travels")
     private List<Trip> my_travels;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Company company;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "client")
-    //@JoinColumn(name = "id_orders")
     private List<Order> orders;
 }
