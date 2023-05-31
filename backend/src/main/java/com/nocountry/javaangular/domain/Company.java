@@ -6,7 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @NoArgsConstructor
@@ -21,10 +24,13 @@ public class Company {
     private String contact_number;
     @ElementCollection
     private List<String> contact_links;
-    
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
     @JsonIgnore
     private List<Client> admins;
+    @OneToMany(mappedBy = "company")
+    @JsonIgnore
+    private List<Client> clients = new ArrayList<>();
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
     @JsonIgnore

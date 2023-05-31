@@ -4,10 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @NoArgsConstructor
@@ -37,12 +40,16 @@ public class Client {
     @JoinColumn(name = "my_travels_id", insertable = false, updatable = false)
     private List<Trip> my_travels;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "company_id", insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(
+    		name = "id_company",
+    		nullable = true,
+    		foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references companies (id)")
+    )
     private Company company;
-  
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "client")
-    private List<Order> orders;
     
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore
+    private List<Order> orders = new ArrayList<>();
     
 }

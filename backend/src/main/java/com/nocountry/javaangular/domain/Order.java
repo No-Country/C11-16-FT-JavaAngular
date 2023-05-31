@@ -1,7 +1,5 @@
 package com.nocountry.javaangular.domain;
 
-import java.util.List;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,11 +20,21 @@ public class Order {
 	private String payment_method;
 	private double taxes;
 	private double final_price;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Client client;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    
+	@ManyToOne
+	@JoinColumn(
+			name = "id_client",
+			nullable = false,
+			foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_client) references clients (id)")
+	)
+	private Client client;
+	
+	@ManyToOne
+	@JoinColumn(
+			name = "id_trip",
+			nullable = false,
+			foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_trip) references trips (id)")
+	)
     private Trip trip;
     	
 }
