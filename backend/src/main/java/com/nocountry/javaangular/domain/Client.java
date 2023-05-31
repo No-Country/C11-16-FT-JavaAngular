@@ -32,8 +32,7 @@ public class Client {
     private String profile_picture;
     private Boolean is_admin;
     
-    
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Trip> favorites;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
