@@ -49,11 +49,10 @@ public class Trip {
     @JsonIgnore
     private List<Order> orders = new ArrayList<>();
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-
+    @ManyToOne
     @JoinColumn(
             name = "id_company",
+            nullable = true,
             foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references companies (id)")
     )
     private Company company;

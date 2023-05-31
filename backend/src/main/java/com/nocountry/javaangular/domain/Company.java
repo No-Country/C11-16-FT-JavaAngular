@@ -25,15 +25,15 @@ public class Company {
     private String contact_number;
     private List<String> contact_links;
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
+    @OneToMany(mappedBy = "company")
     @JsonIgnore
     private List<Client> clients = new ArrayList<>();
     
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
     private List<Review> reviews;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
+    @OneToMany(mappedBy = "company")
     @JsonIgnore
-    private List<Trip> trips;
+    private List<Trip> trips = new ArrayList<>();
      
 }
