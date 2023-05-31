@@ -51,7 +51,7 @@ public class CompanyController {
 		if (companyDB != null) {
 			companyDB.setName(companyNew.getName());
 			companyDB.setContact_number(companyNew.getContact_number());
-			companyDB.setContact_links(companyNew.getContact_links());
+//			companyDB.setContact_links(companyNew.getContact_links());
 			companyService.updateCompany(companyDB);
 			json.put("mensaje", "Company updated");
 			return new ResponseEntity<>(json, HttpStatus.OK);

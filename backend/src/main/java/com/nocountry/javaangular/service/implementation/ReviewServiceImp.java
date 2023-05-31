@@ -34,17 +34,9 @@ public class ReviewServiceImp implements ReviewService {
 
     @Override
     public void createReview(Long companyId, Review review) {
-        try {
-            Company company = companyRepository.getById(companyId);
-            if (!company.getName().isEmpty()) {
-                List<Review> reviews = company.getReviews();
-                reviews.add(review);
-                company.setReviews(reviews);
-                companyRepository.save(company);
-                System.out.println(review.toString());
-            }
-        } catch (Exception e) {
-            throw new Error("ERROR");
-        }
+        Company company = companyRepository.getById(companyId);
+        review.setCompany(company);
+        System.out.println(review.toString());
+        reviewRepository.save(review);
     }
 }

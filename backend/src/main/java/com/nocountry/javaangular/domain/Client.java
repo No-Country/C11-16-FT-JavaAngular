@@ -1,4 +1,5 @@
 package com.nocountry.javaangular.domain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,12 +41,13 @@ public class Client {
     @JoinColumn(name = "my_travels_id", insertable = false, updatable = false)
     private List<Trip> my_travels;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(
     		name = "id_company",
     		nullable = true,
     		foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references companies (id)")
     )
+    @JsonIgnoreProperties({"admins"})
     private Company company;
     
     @OneToMany(mappedBy = "client")
