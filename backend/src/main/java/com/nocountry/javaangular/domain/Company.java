@@ -25,11 +25,15 @@ public class Company {
     private String contact_number;
     private List<String> contact_links;
     
-    @OneToMany(mappedBy = "company")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
     @JsonIgnore
     private List<Client> clients = new ArrayList<>();
     
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
     private List<Review> reviews;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
+    @JsonIgnore
+    private List<Trip> trips;
      
 }
