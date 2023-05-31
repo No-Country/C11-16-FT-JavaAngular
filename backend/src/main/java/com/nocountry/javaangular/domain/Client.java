@@ -41,17 +41,20 @@ public class Client {
     @JoinColumn(name = "my_travels_id", insertable = false, updatable = false)
     private List<Trip> my_travels;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(
     		name = "id_company",
     		nullable = true,
     		foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references companies (id)")
     )
-    @JsonIgnoreProperties({"admins"})
     private Company company;
     
     @OneToMany(mappedBy = "client")
     @JsonIgnore
     private List<Order> orders = new ArrayList<>();
+
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore
+    private List<Review> reviews = new ArrayList<>();
     
 }

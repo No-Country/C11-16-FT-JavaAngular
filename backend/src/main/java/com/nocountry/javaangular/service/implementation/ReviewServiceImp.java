@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +38,7 @@ public class ReviewServiceImp implements ReviewService {
     public void createReview(Long companyId, Review review) {
         Company company = companyRepository.getById(companyId);
         review.setCompany(company);
-        System.out.println(review.toString());
+        review.setCreatedDateTime(Date.valueOf(LocalDate.now()));
         reviewRepository.save(review);
     }
 }

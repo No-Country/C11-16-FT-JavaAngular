@@ -1,7 +1,6 @@
 package com.nocountry.javaangular.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,12 +25,15 @@ public class Company {
     @ElementCollection
     private List<String> contact_links;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
-    private List<Client> admins;
+    @OneToMany(mappedBy = "company")
+    @JsonIgnore
+    private List<Client> clients = new ArrayList<>();
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
-//    @JsonIgnoreProperties({"client"})
-    private List<Review> reviews;
+    @OneToMany(mappedBy = "company")
+    @JsonIdentityInfo(
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "id")
+    private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "company")
     @JsonIgnore

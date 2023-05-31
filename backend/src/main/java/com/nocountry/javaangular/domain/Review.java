@@ -1,8 +1,6 @@
 package com.nocountry.javaangular.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Builder
 @Data
@@ -27,15 +26,24 @@ public class Review {
     private Long id;
     private String content;
     private Double rating;
-//    @CreationTimestamp
-//    @JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
-//    private Date createdDateTime;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id", insertable = false, updatable = false)
-//    @JsonIgnore
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy.MM.dd", iso = DateTimeFormat.ISO.DATE)
+    private Date createdDateTime;
+    @ManyToOne
+    @JoinColumn(
+            name = "client_id",
+            nullable = true,
+            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (client_id) references reviews (id)")
+    )
     private Client client;
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "company_id", insertable = false, updatable = false)
-//    @JsonIgnoreProperties({"reviews"})
+    @ManyToOne
+    @JoinColumn(
+            name = "company_id",
+            nullable = true,
+            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (company_id) references reviews (id)")
+    )
+    @JsonIdentityInfo(
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "id")
     private Company company;
 }
