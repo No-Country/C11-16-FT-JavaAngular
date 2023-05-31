@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -24,6 +25,13 @@ public class ReviewServiceImp implements ReviewService {
     public List<Review> getAllReviews() {
         return reviewRepository.findAll();
     }
+
+    @Override
+    public Optional<List<Review>> getNineReviews(Long companyId) {
+        Company company = companyRepository.getById(companyId);
+        return reviewRepository.getNineReviews(company.getId());
+    }
+
     @Override
     public void createReview(Long companyId, Review review) {
         try {

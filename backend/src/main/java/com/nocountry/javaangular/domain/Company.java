@@ -1,5 +1,6 @@
 package com.nocountry.javaangular.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,12 +19,15 @@ public class Company {
     private Long id;
     private String name;
     private String contact_number;
+    @ElementCollection
     private List<String> contact_links;
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
+    @JsonIgnore
     private List<Client> admins;
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
+    @JsonIgnore
     private List<Review> reviews;
      
 }

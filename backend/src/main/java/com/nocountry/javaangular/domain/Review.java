@@ -1,14 +1,14 @@
 package com.nocountry.javaangular.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Data
 @NoArgsConstructor
@@ -21,8 +21,9 @@ public class Review {
     private Long id;
     private String content;
     private Double rating;
-    @DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
-    private LocalDate posted_date;
+    @CreationTimestamp
+    @JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+    private LocalDateTime createdDateTime;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", insertable = false, updatable = false)
     private Client client;
