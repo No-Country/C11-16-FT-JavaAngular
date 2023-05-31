@@ -32,5 +32,9 @@ public class Company {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company", fetch = FetchType.EAGER)
 //    @JsonIgnoreProperties({"client"})
     private List<Review> reviews;
+
+    @OneToMany(mappedBy = "company")
+    @JsonIgnore
+    private List<Trip> trips = new ArrayList<>();
      
 }

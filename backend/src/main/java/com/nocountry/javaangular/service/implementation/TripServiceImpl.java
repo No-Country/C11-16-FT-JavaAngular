@@ -5,6 +5,7 @@ import com.nocountry.javaangular.service.interfaces.TripService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,15 +14,6 @@ import java.util.Optional;
 public class TripServiceImpl  implements TripService {
 
     private final TripRepository repository;
-
-    @Override
-    public List<Trip> getAll() {
-        List<Trip> results = repository.findAll();
-        if(results.isEmpty()){
-            return null;
-        }
-        return results;
-    }
     @Override
     public ResponseEntity<?> getById(Long id) {
         Optional<Trip> result = repository.findById(id);
@@ -31,12 +23,8 @@ public class TripServiceImpl  implements TripService {
         return ResponseEntity.ok(result);
     }
     @Override
-    public List<Trip> getByDestination(String destination) {
-        List<Trip> results = repository.getByDestination(destination);
-        if(results.isEmpty()){
-            return null;
-        }
-        return results;
+    public List<Trip> getFiltered(String type,String origin, String destination, Date departure, Double from, Double to,Integer children,Integer adults) {
+        return repository.getFiltered(type,origin,destination,departure,from,to,children,adults);
     }
     @Override
     public ResponseEntity<Trip> modifyTrip(Trip tripupdate, Long id) {
@@ -44,13 +32,47 @@ public class TripServiceImpl  implements TripService {
         if(result.isEmpty()){
             return ResponseEntity.badRequest().body(null);
         }
-        //check which attributes need to be updated
+        if(!tripupdate.getType().isEmpty() && !tripupdate.getType().equals(result.get().getType())){
+            result.get().setType(tripupdate.getType());
+        }
+        if(!tripupdate.getStatus().isEmpty() && !tripupdate.getStatus().equals(result.get().getStatus())){
+            result.get().setStatus(tripupdate.getStatus());
+        }
+        if(!tripupdate.getOrigin().isEmpty() &&!tripupdate.getOrigin().equals(result.get().getOrigin())){
+            result.get().setOrigin(tripupdate.getOrigin());
+        }
+        if(!tripupdate.getDestination().isEmpty() &&!tripupdate.getDestination().equals(result.get().getDestination())){
+            result.get().setDestination(tripupdate.getDestination());
+        }
+        if(tripupdate.getPrice() != null && !tripupdate.getPrice().equals(result.get().getPrice())){
+            result.get().setPrice(tripupdate.getPrice());
+        }
+        if(tripupdate.getStops()!=null && !tripupdate.getStops().equals(result.get().getStops())){
+            result.get().setStops(tripupdate.getStops());
+        }
+        if(tripupdate.getAllows_changes()!=null && !tripupdate.getAllows_changes().equals(result.get().getAllows_changes())){
+            result.get().setAllows_changes(tripupdate.getAllows_changes());
+        }
+        if(tripupdate.getAllows_cancel()!=null && !tripupdate.getAllows_cancel().equals(result.get().getAllows_cancel())){
+            result.get().setAllows_cancel(tripupdate.getAllows_cancel());
+        }
+        if(!tripupdate.getImage().isEmpty() && !tripupdate.getImage().equals(result.get().getImage())){
+            result.get().setImage(tripupdate.getImage());
+        }
+        if(tripupdate.getAvailable_seats()!=null && !tripupdate.getAvailable_seats().equals(result.get().getAvailable_seats())){
+            result.get().setAvailable_seats(tripupdate.getAvailable_seats());
+        }
+        if(tripupdate.getDeparture()!=null && !tripupdate.getDeparture().equals(result.get().getDeparture())){
+            result.get().setDeparture(tripupdate.getDeparture());
+        }
+        if(tripupdate.getArrival()!=null && !tripupdate.getArrival().equals(result.get().getArrival())){
+            result.get().setArrival(tripupdate.getArrival());
+        }
 
-        return ResponseEntity.ok(repository.save(tripupdate));
+        return ResponseEntity.ok(repository.save(result.get()));
     }
     @Override
     public ResponseEntity<Trip> registerNewTrip(Trip newtrip) {
-        //must be registered with: type, origin,destination,departure, arrival,image and company
         return ResponseEntity.ok(repository.save(newtrip));
     }
     @Override
