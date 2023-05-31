@@ -11,6 +11,8 @@ import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -39,19 +41,18 @@ public class Trip {
     private Integer children;
     private Integer adults;
 
-    private List<Integer> taken_seats;
-    private List<Integer> seats;
+    //private List<Integer> taken_seats;
+    //private List<Integer> seats;
 
     
     @OneToMany(mappedBy = "trip")
     @JsonIgnore
     private List<Order> orders = new ArrayList<>();
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-
+    @ManyToOne
     @JoinColumn(
             name = "id_company",
+            nullable = true,
             foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references companies (id)")
     )
     private Company company;

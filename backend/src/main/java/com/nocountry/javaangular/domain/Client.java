@@ -30,22 +30,12 @@ public class Client {
     @DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
     private LocalDate birth_date;
     private String profile_picture;
-    private Boolean is_admin;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Trip> favorites;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Trip> my_travels;
-
-
-    @ManyToOne
-    @JoinColumn(
-    		name = "id_company",
-    		nullable = true,
-    		foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references companies (id)")
-    )
-    private Company company;
     
     @OneToMany(mappedBy = "client")
     @JsonIgnore
