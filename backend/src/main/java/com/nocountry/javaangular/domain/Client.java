@@ -38,7 +38,6 @@ public class Client {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Trip> my_travels;
 
-
     @ManyToOne
     @JoinColumn(
     		name = "id_company",
