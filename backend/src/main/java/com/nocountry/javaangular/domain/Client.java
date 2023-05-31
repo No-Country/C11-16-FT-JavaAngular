@@ -35,9 +35,12 @@ public class Client {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Trip> my_travels;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references company (id_company)"))
     private Company company;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "client")
+  
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "client")
     private List<Order> orders;
+    
+    
 }

@@ -1,5 +1,7 @@
 package com.nocountry.javaangular.domain;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,10 +22,11 @@ public class Order {
 	private String payment_method;
 	private double taxes;
 	private double final_price;
-    
+
     @ManyToOne(cascade = CascadeType.ALL)
     private Client client;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Trip trip;
+    	
 }

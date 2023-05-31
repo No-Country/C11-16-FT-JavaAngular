@@ -1,9 +1,11 @@
 package com.nocountry.javaangular.domain;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -21,7 +23,6 @@ public class Review {
     private Double rating;
     @DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
     private LocalDate posted_date;
-    
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Client client;

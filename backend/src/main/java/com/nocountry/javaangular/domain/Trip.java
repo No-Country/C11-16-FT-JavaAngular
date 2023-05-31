@@ -1,4 +1,5 @@
 package com.nocountry.javaangular.domain;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,9 +25,9 @@ public class Trip {
     private String destination;
     private Double price;
     private Integer stops;
-    @DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
+    @DateTimeFormat(pattern = "yyyy.MM.dd", iso = ISO.DATE)
     private LocalDate departure;
-    @DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
+    @DateTimeFormat(pattern = "yyyy.MM.dd", iso = ISO.DATE)
     private LocalDate arrival;
     private Boolean allows_changes;
     private Boolean allows_cancel;
@@ -35,12 +36,21 @@ public class Trip {
 
     private List<Integer> taken_seats;
     private List<Integer> seats;
-    
+
+    @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(
+            name = "id_company",
+            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references trips (id)")
+    )
     private Company company;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "favorites")
     private List<Client> client_favorites;
+    
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "my_travels")
     private List<Client> client_mytrips;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Hotel hotel;
 }
