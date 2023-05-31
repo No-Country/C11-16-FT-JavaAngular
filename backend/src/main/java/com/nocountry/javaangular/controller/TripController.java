@@ -1,42 +1,31 @@
 package com.nocountry.javaangular.controller;
 import com.nocountry.javaangular.domain.Trip;
-import com.nocountry.javaangular.domain.Client;
 import com.nocountry.javaangular.service.implementation.TripServiceImpl;
 import lombok.AllArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/trip")
 @AllArgsConstructor
 public class TripController {
     private final TripServiceImpl tripServiceImpl;
-    @GetMapping("/all")
-    public List<Trip> getAll(){
-        return tripServiceImpl.getAll();
-    }
     @GetMapping("/id/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         return tripServiceImpl.getById(id);
     }
-    @GetMapping("/{keyword}")
-    public List<Trip> getByDestination(@PathVariable String destination){
-        return tripServiceImpl.getByDestination(destination);
-    }
     @GetMapping("/")
-    public List<Trip> getFiltered(@RequestParam(name = "origin",required = false) String origin,
-                                  @RequestParam(name = "destination",required = false) String destination,
-                                  @RequestParam(name = "departure",required = false)@DateTimeFormat(pattern = "yyyy.MM.dd") LocalDate departure,
-                                  @RequestParam(name = "from",required = false) Double from,
-                                  @RequestParam(name = "to",required = false) Double to){
-                                  //@RequestParam(name = "children") Integer children,
-                                  //@RequestParam(name = "adults") Integer adults){
-        return tripServiceImpl.getFiltered(origin,destination,departure,from,to);
+    public List<Trip> getFiltered(@RequestParam(required = false) String type,
+                                  @RequestParam(required = false) String origin,
+                                  @RequestParam(required = false) String destination,
+                                  @RequestParam(required = false) Date departure,
+                                  @RequestParam(required = false) Double from,
+                                  @RequestParam(required = false) Double to,
+                                  @RequestParam(required = false) Integer children,
+                                  @RequestParam(required = false) Integer adults){
+        return tripServiceImpl.getFiltered(type,origin,destination,departure,from,to,children,adults);
     }
     @PutMapping("/{id}")
     public ResponseEntity<Trip> modifyTrip(@RequestBody Trip tripupdate,@PathVariable Long id){

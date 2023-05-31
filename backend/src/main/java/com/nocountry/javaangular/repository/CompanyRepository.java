@@ -1,10 +1,10 @@
 package com.nocountry.javaangular.repository;
 
-import com.nocountry.javaangular.domain.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.nocountry.javaangular.domain.Company;
 @Repository
-public interface CompanyRepository extends JpaRepository<Company,Long> {
-//    void updateCompany(Company company, Long id);
+public interface CompanyRepository extends JpaRepository<Company, Long>{
+
 }

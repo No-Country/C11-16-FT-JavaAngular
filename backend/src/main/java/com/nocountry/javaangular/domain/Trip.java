@@ -1,12 +1,13 @@
 package com.nocountry.javaangular.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDate;
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
@@ -26,22 +27,32 @@ public class Trip {
     private Double price;
     private Integer stops;
     @DateTimeFormat(pattern = "yyyy.MM.dd", iso = ISO.DATE)
-    private LocalDate departure;
+    @Temporal(TemporalType.DATE)
+    private Date departure;
+    @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy.MM.dd", iso = ISO.DATE)
-    private LocalDate arrival;
+    private Date arrival;
     private Boolean allows_changes;
     private Boolean allows_cancel;
     private String image;
     private Integer available_seats;
+    private Integer children;
+    private Integer adults;
 
     private List<Integer> taken_seats;
     private List<Integer> seats;
 
+    
+    @OneToMany(mappedBy = "trip")
     @JsonIgnore
+    private List<Order> orders = new ArrayList<>();
+
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
     @JoinColumn(
             name = "id_company",
-            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references trips (id)")
+            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references companies (id)")
     )
     private Company company;
 
@@ -51,6 +62,6 @@ public class Trip {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "my_travels")
     private List<Client> client_mytrips;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Hotel hotel;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Hotel hotel;
 }
