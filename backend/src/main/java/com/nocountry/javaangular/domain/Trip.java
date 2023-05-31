@@ -4,10 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @NoArgsConstructor
@@ -35,6 +38,10 @@ public class Trip {
 
     private List<Integer> taken_seats;
     private List<Integer> seats;
+    
+    @OneToMany(mappedBy = "trip")
+    @JsonIgnore
+    private List<Order> orders = new ArrayList<>();
     
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Company company;

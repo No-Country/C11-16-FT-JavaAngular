@@ -6,8 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Data
 @NoArgsConstructor
@@ -22,8 +25,9 @@ public class Company {
     private String contact_number;
     private List<String> contact_links;
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
-    private List<Client> admins;
+    @OneToMany(mappedBy = "company")
+    @JsonIgnore
+    private List<Client> clients = new ArrayList<>();
     
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
     private List<Review> reviews;
