@@ -4,6 +4,7 @@ interface Data {
   from: string;
   to: string;
   date: string;
+  option?: string;
 }
 
 @Component({
@@ -13,9 +14,11 @@ interface Data {
 })
 export class SearcherComponent {
   formData!: Data;
+  selectedOption: string = 'avion';
 
   viewData(data: Data) {
     this.formData = data;
+    this.formData.option = this.selectedOption;
     console.log(this.formData);
   }
 }

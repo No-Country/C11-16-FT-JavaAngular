@@ -15,17 +15,23 @@
       </ul>
     </nav>
 
-    <button class="header__auth--buton">
+    <button class="header__auth--buton" (click)="showAuth()">
       Ingresar <i class="pi pi-user"></i>
     </button>
+
+    <div class="header__auth" *ngIf="showAuthHeader">
+      <app-login></app-login>
+    </div>
   </div>
 
-  <form>
-    <label for="searchTravelHeader">¿A dónde te gustaría viajar?</label>
-    <input
-      type="text"
-      id="searchTravelHeader"
-      placeholder="Buscar por palabra, ej: Salta"
-    />
-  </form>
+  <div class="form__container">
+    <form>
+      <label for="searchTravelHeader">¿A dónde te gustaría viajar?</label>
+      <input
+        type="text"
+        id="searchTravelHeader"
+        placeholder="Buscar por palabra, ej: Salta"
+      />
+    </form>
+  </div>
 </header>

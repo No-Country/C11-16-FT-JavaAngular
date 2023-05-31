@@ -30,6 +30,6 @@ import { RatingComponent } from './components/rating/rating.component';
     PrimeNgModule,
     ReactiveFormsModule,
   ],
-  exports: [HeroComponent],
+  exports: [HeroComponent, MostChosenComponent],
 })
 export class HomeModule {}

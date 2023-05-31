@@ -29,3 +29,16 @@
 .form__searcher {
   width: 100%;
 }
+
+@media (width <= 890px) {
+  .searcher__container {
+    padding-bottom: 1.5rem;
+  }
+  .buttons__container {
+    align-self: center;
+  }
+  .form__searcher {
+    justify-content: center;
+    margin: 0 auto;
+  }
+}

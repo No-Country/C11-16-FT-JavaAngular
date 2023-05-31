@@ -8,7 +8,7 @@
 
     <div class="select">
       <select name="from" id="" formControlName="from">
-        <option value="" selected>Seleccione una provincia</option>
+        <!-- <option value="" selected>Seleccione una provincia</option> -->
         <option [value]="option.value" *ngFor="let option of cities">
           {{ option.name }}
         </option>
@@ -21,7 +21,7 @@
 
     <div class="select">
       <select name="to" id="" formControlName="to">
-        <option value="" selected>Seleccione una provincia</option>
+        <!-- <option value="" selected>Seleccione una provincia</option> -->
         <option [value]="option.value" *ngFor="let option of cities">
           {{ option.name }}
         </option>
@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <div class="form__content">
+  <div class="form__content fecha">
     <label for="fecha">Fecha</label>
 
     <p-calendar

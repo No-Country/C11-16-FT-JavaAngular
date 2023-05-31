@@ -10,6 +10,7 @@ interface Data {
   from: string;
   to: string;
   date: string;
+  option?: string;
 }
 
 @Component({
@@ -66,6 +67,8 @@ export class FormSearcherComponent {
   }
 
   searchTravel() {
+    if (this.formData.invalid) return;
+
     const from = this.formData.value.from;
     const to = this.formData.value.to;
     const date = this.formData.value.date;
