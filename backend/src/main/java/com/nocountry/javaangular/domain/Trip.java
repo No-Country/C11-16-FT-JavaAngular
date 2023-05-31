@@ -41,8 +41,8 @@ public class Trip {
     private Integer children;
     private Integer adults;
 
-    private List<Integer> taken_seats;
-    private List<Integer> seats;
+    //private List<Integer> taken_seats;
+    //private List<Integer> seats;
 
     
     @OneToMany(mappedBy = "trip")

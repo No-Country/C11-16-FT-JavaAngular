@@ -22,12 +22,8 @@ public class Company {
     private Long id;
     private String name;
     private String contact_number;
-    @ElementCollection
-    private List<String> contact_links;
 
-    @OneToMany(mappedBy = "company")
-    @JsonIgnore
-    private List<Client> clients = new ArrayList<>();
+    private String contact_links;
     
     @OneToMany(mappedBy = "company")
     @JsonIdentityInfo(
