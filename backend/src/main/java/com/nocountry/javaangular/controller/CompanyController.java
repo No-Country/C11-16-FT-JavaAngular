@@ -20,7 +20,7 @@ public class CompanyController {
 	public CompanyController(CompanyService companyService) {
 		this.companyService = companyService;
 	}
-	
+
 	@PostMapping(value = "/createCompany", headers = "Accept=application/json")
 	public ResponseEntity<?> createCompany(@RequestBody Company company){
 		HashMap<String, Object> json = new HashMap<>();
@@ -28,13 +28,13 @@ public class CompanyController {
 		companyService.createCompany(company);
 		return new ResponseEntity<>(json, HttpStatus.OK);
 	}
-	
+
 	@GetMapping(value = "/listCompanies" , headers = "Accept=application/json")
 	public ResponseEntity<List<Company>> listCompanies(){
 		List<Company> list = companyService.listCompany();
 		return new ResponseEntity<List<Company>>(list, HttpStatus.OK);
 	}
-	
+
 	@GetMapping(value = "/searchCompanyId/{id}" , headers = "Accept=application/json")
 	public ResponseEntity<?> searchId(@PathVariable Long id){
 		Company companyDB = companyService.searchIdCompany(id);
@@ -43,7 +43,7 @@ public class CompanyController {
 		}
 		return new ResponseEntity<>("Company does not exist", HttpStatus.NOT_FOUND);
 	}
-	
+
 	@PutMapping(value = "/updatedCompany/{id}", headers = "Accept=application/json")
 	public ResponseEntity<?>updated(@RequestBody Company companyNew, @PathVariable Long id){
 		Company companyDB = companyService.searchIdCompany(id);
@@ -51,7 +51,7 @@ public class CompanyController {
 		if (companyDB != null) {
 			companyDB.setName(companyNew.getName());
 			companyDB.setContact_number(companyNew.getContact_number());
-			companyDB.setContact_links(companyNew.getContact_links());
+//			companyDB.setContact_links(companyNew.getContact_links());
 			companyService.updateCompany(companyDB);
 			json.put("mensaje", "Company updated");
 			return new ResponseEntity<>(json, HttpStatus.OK);
@@ -59,12 +59,12 @@ public class CompanyController {
 		json.put("mensaje", "Company does not exist");
 		return new ResponseEntity<>(json, HttpStatus.NOT_FOUND);
 	}
-	
+
 	@DeleteMapping(value = "/eliminarCompania/{id}", headers = "Accept=application/json")
 	public ResponseEntity<?>deleteCompany(@PathVariable Long id){
 		Company companyDB = companyService.searchIdCompany(id);
 		HashMap<String, Object> json = new HashMap<>();
-		
+
 		if (companyDB != null) {
 			companyService.deleteCompany(id);
 			json.put("mensaje", "Company successfully eliminated");
@@ -73,5 +73,4 @@ public class CompanyController {
 		json.put("mensaje", "Company does not exist");
 		return new ResponseEntity<>(json, HttpStatus.NOT_FOUND);
 	}
-
 }

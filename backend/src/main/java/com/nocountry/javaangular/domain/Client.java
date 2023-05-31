@@ -1,4 +1,5 @@
 package com.nocountry.javaangular.domain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,9 +34,11 @@ public class Client {
     private Boolean is_admin;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "favorites_id", insertable = false, updatable = false)
     private List<Trip> favorites;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "my_travels_id", insertable = false, updatable = false)
     private List<Trip> my_travels;
 
     @ManyToOne
@@ -49,5 +52,9 @@ public class Client {
     @OneToMany(mappedBy = "client")
     @JsonIgnore
     private List<Order> orders = new ArrayList<>();
+
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore
+    private List<Review> reviews = new ArrayList<>();
     
 }

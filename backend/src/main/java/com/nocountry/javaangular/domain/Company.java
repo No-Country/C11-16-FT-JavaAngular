@@ -1,14 +1,13 @@
 package com.nocountry.javaangular.domain;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,14 +22,18 @@ public class Company {
     private Long id;
     private String name;
     private String contact_number;
+    @ElementCollection
     private List<String> contact_links;
-    
+
     @OneToMany(mappedBy = "company")
     @JsonIgnore
     private List<Client> clients = new ArrayList<>();
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "company")
-    private List<Review> reviews;
+    @OneToMany(mappedBy = "company")
+    @JsonIdentityInfo(
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "id")
+    private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "company")
     @JsonIgnore
