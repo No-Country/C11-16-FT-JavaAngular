@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface ReviewService {
     List<Review> getAllReviews();
     Optional<List<Review>> getNineReviews(Long companyId);
-    void createReview(Long companyId, Review review);
+    void createReview(Review review);
 }

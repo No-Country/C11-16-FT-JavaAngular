@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthButtonService } from 'src/app/services/auth-button.service';
 
 interface NavItem {
   name: string;
@@ -12,10 +13,12 @@ interface NavItem {
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  showAuthHeader: boolean = false;
+
   navItem: NavItem[] = [
     {
-      name: 'categorías',
-      link: '/categorias',
+      name: 'viajes',
+      link: '/viajes',
     },
     {
       name: 'recomendaciones',
@@ -30,4 +33,9 @@ export class HeaderComponent {
       link: '/ayuda',
     },
   ];
+
+  showAuth() {
+    this.showAuthHeader = !this.showAuthHeader;
+    console.log(this.showAuthHeader);
+  }
 }

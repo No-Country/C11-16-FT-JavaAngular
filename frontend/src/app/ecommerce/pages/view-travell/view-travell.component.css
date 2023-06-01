@@ -1,0 +1,82 @@
+.travell__container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.travell__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+img {
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.travell__info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+li {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+.travell__info--left,
+.travell__info--rigth {
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.travell__info--left {
+}
+
+h2,
+div + div p:first-child {
+  padding-bottom: 2rem;
+}
+
+.travell__info--rigth {
+  align-items: center;
+}
+
+.text__rigth {
+  font-size: 1.4rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.taxes {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+button {
+  padding: 1.3rem 2rem;
+  background: #f9d9da;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  color: var(--header-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+}

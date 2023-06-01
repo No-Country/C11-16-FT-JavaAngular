@@ -1,0 +1,48 @@
+<section class="contact__section">
+  <article class="contact__content">
+    <h2>Brindanos tus datos y te contactaremos a la brevedad</h2>
+
+    <form [formGroup]="datos" (ngSubmit)="envioCorreo()">
+      <div>
+        <label for="fullName">Nombre y apellido</label>
+        <input
+          type="text"
+          id="fullName"
+          formControlName="fullName"
+          required=""
+        />
+      </div>
+
+      <div>
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" formControlName="email" required="" />
+      </div>
+
+      <div>
+        <label for="subject">Asunto</label>
+        <input type="tel" id="subject" formControlName="subject" required="" />
+      </div>
+
+      <div>
+        <label class="optional" for="tel">Teléfono (Opcional)</label>
+        <input type="text" id="tel" formControlName="tel" />
+      </div>
+
+      <div>
+        <label for="message">Mi consulta es sobre...</label>
+        <textarea
+          name=""
+          cols="30"
+          rows="10"
+          id="message"
+          formControlName="message"
+          required=""
+        ></textarea>
+      </div>
+
+      <button type="submit" [disabled]="datos.invalid">
+        Enviar formulario
+      </button>
+    </form>
+  </article>
+</section>

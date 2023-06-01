@@ -1,1 +1,48 @@
-<p>categories works!</p>
+<section class="travells__container">
+  <article class="travells__left">
+    <h2>Encontrá tu destino</h2>
+
+    <div class="travells__filter--provinces">
+      <h3>Filtrar por provincia</h3>
+
+      <form [formGroup]="form" class="form__container">
+        <div *ngFor="let option of options">
+          <label>
+            <input type="checkbox" [formControlName]="option.value" />
+            {{ option.name }}
+          </label>
+        </div>
+      </form>
+    </div>
+
+    <div>
+      <h3>Filtrar por precios</h3>
+
+      <form>
+        <input type="range" min="10000" max="500000" />
+      </form>
+    </div>
+
+    <div>
+      <h3>Filtrar por cantidad</h3>
+
+      <form [formGroup]="form3" class="form__container">
+        <div *ngFor="let option of options2">
+          <label>
+            <input type="checkbox" [formControlName]="option.value" />
+            {{ option.name }}
+          </label>
+        </div>
+      </form>
+    </div>
+  </article>
+
+  <article class="travells__rigth">
+    <app-cards-travells
+      *ngFor="let card of travellsArray"
+      [travell]="card"
+    ></app-cards-travells>
+  </article>
+</section>
+
+<app-most-chosen [popular]="popularArray"></app-most-chosen>

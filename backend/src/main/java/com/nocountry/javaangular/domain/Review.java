@@ -29,18 +29,20 @@ public class Review {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy.MM.dd", iso = DateTimeFormat.ISO.DATE)
     private Date createdDateTime;
+    
     @ManyToOne
     @JoinColumn(
             name = "client_id",
             nullable = true,
-            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (client_id) references reviews (id)")
+            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (client_id) references clients (id)")
     )
     private Client client;
+    
     @ManyToOne
     @JoinColumn(
             name = "company_id",
             nullable = true,
-            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (company_id) references reviews (id)")
+            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (company_id) references companies (id)")
     )
     @JsonIdentityInfo(
             generator = ObjectIdGenerators.PropertyGenerator.class,

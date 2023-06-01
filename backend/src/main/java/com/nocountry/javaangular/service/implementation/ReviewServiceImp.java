@@ -35,9 +35,7 @@ public class ReviewServiceImp implements ReviewService {
     }
 
     @Override
-    public void createReview(Long companyId, Review review) {
-        Company company = companyRepository.getById(companyId);
-        review.setCompany(company);
+    public void createReview(Review review) {
         review.setCreatedDateTime(Date.valueOf(LocalDate.now()));
         reviewRepository.save(review);
     }

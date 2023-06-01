@@ -21,7 +21,7 @@ public class Order {
 	private double taxes;
 	private double final_price;
     
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(
 			name = "id_client",
 			nullable = false,
@@ -29,7 +29,7 @@ public class Order {
 	)
 	private Client client;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(
 			name = "id_trip",
 			nullable = false,

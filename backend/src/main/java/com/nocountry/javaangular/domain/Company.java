@@ -1,6 +1,5 @@
 package com.nocountry.javaangular.domain;
 
-import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,9 +25,6 @@ public class Company {
     private String contact_links;
     
     @OneToMany(mappedBy = "company")
-    @JsonIdentityInfo(
-            generator = ObjectIdGenerators.PropertyGenerator.class,
-            property = "id")
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "company")
