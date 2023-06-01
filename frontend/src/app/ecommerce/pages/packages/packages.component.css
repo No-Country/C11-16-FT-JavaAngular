@@ -1,0 +1,27 @@
+.packages__container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.packages__card {
+  width: 100%;
+  display: flex;
+  gap: 3rem;
+}
+
+img,
+.package__info {
+  width: 100%;
+}
+
+img {
+  max-width: 500px;
+  border-radius: 20px;
+  max-height: 185.95px;
+  object-fit: cover;
+}

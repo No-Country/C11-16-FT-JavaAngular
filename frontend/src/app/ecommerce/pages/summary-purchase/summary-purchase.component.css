@@ -1,0 +1,70 @@
+.summary__container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+}
+
+.summary__content {
+  width: 100%;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+}
+
+.summary__left,
+.summary__rigth {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.summary__left {
+}
+
+.summary__data {
+  width: 100%;
+  max-width: 400px;
+}
+
+.summary__rigth {
+  text-align: center;
+}
+
+.summary__rigth p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.summary__rigth .taxes {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+button {
+  padding: 1rem;
+  border: 1px solid #4f4f4f;
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+.summary__email--button {
+  background: #f9d9da;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

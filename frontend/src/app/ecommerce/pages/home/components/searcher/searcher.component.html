@@ -1,8 +1,26 @@
 <section class="searcher__container">
   <article class="buttons__container">
-    <button class="searcher__button active">En avión</button>
-    <button class="searcher__button">En micro</button>
-    <button class="searcher__button">En tren</button>
+    <button
+      class="searcher__button"
+      (click)="selectedOption = 'avion'"
+      [ngClass]="{ active: selectedOption === 'avion' }"
+    >
+      En avión
+    </button>
+    <button
+      class="searcher__button"
+      (click)="selectedOption = 'micro'"
+      [ngClass]="{ active: selectedOption === 'micro' }"
+    >
+      En micro
+    </button>
+    <button
+      class="searcher__button"
+      (click)="selectedOption = 'tren'"
+      [ngClass]="{ active: selectedOption === 'tren' }"
+    >
+      En tren
+    </button>
   </article>
 
   <div class="form__searcher">
