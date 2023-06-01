@@ -7,8 +7,14 @@
     <label for="desde">Desde</label>
 
     <div class="select">
-      <select name="from" id="" formControlName="from">
-        <option value="" selected>Seleccione una provincia</option>
+      <select
+        name="from"
+        id=""
+        formControlName="from"
+        (change)="onFromSelectionChange()"
+        #fromSelect
+      >
+        <!-- <option value="" selected>Seleccione una provincia</option> -->
         <option [value]="option.value" *ngFor="let option of cities">
           {{ option.name }}
         </option>
@@ -20,16 +26,20 @@
     <label for="hasta">Hasta</label>
 
     <div class="select">
-      <select name="to" id="" formControlName="to">
-        <option value="" selected>Seleccione una provincia</option>
-        <option [value]="option.value" *ngFor="let option of cities">
+      <select name="to" id="" formControlName="to" #toSelect>
+        <!-- <option value="" selected>Seleccione una provincia</option> -->
+        <option
+          [value]="option.value"
+          *ngFor="let option of cities"
+          [disabled]="option.value === formData.value.from"
+        >
           {{ option.name }}
         </option>
       </select>
     </div>
   </div>
 
-  <div class="form__content">
+  <div class="form__content fecha">
     <label for="fecha">Fecha</label>
 
     <p-calendar
@@ -37,7 +47,6 @@
       [showIcon]="true"
       [minDate]="minDate"
       dateFormat="dd/mm/yy"
-      [showTime]="true"
     ></p-calendar>
 
     <!-- <input type="datetime-local" name="" id="" /> -->

@@ -26,16 +26,23 @@ const animation = { duration: 25000, easing: (t: any) => t };
   styleUrls: ['./community.component.css'],
 })
 export class CommunityComponent implements AfterViewInit, OnDestroy {
+  @Input() travellers!: Travellers[];
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   slider!: KeenSliderInstance;
-
-  @Input() travellers!: Travellers[];
 
   ngAfterViewInit() {
     this.slider = new KeenSlider(this.sliderRef.nativeElement, {
       loop: true,
-      renderMode: 'performance',
+      renderMode: 'precision',
       drag: false,
+      breakpoints: {
+        '(min-width: 600px)': {
+          slides: { perView: 2, spacing: 5 },
+        },
+        '(min-width: 1100px)': {
+          slides: { perView: 3, spacing: 10 },
+        },
+      },
       slides: {
         perView: 4,
         spacing: 15,
