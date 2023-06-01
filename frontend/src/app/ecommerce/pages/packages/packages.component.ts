@@ -56,7 +56,7 @@ export class PackagesComponent {
       option: 'Grupo familiar con 2 menores',
       days: '6 días - 6 noches',
       price: 24599,
-      img: '../../../../../../../../assets/images/paquete4.jpg',
+      img: '../../../../../../../../assets/images/paquete15.png',
     },
   ];
 
