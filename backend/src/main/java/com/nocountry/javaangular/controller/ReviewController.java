@@ -28,8 +28,8 @@ public class ReviewController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/{company_id}")
-    public void createReview(@PathVariable("company_id") Long company_id, @RequestBody Review review) {
-        reviewServiceImp.createReview(company_id, review);
+    @PostMapping("/createReview")
+    public void createReview(@RequestBody Review review) {
+        reviewServiceImp.createReview(review);
     }
 }
