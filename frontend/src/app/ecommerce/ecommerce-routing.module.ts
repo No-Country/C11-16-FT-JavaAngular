@@ -57,6 +57,20 @@ const routes: Routes = [
             (m) => m.SummaryPurchaseModule
           ),
       },
+      {
+        path: 'paquetes',
+        loadChildren: () =>
+          import('./pages/packages/packages.module').then(
+            (m) => m.PackagesModule
+          ),
+      },
+      {
+        path: 'paquete/:id',
+        loadChildren: () =>
+          import('./pages/view-travell/view-travell.module').then(
+            (m) => m.ViewTravellModule
+          ),
+      },
     ],
   },
 ];

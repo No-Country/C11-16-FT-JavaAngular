@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface City {
@@ -20,6 +27,9 @@ interface Data {
 })
 export class FormSearcherComponent {
   @Output() data = new EventEmitter<Data>();
+
+  @ViewChild('fromSelect') fromSelect!: ElementRef<HTMLSelectElement>;
+  @ViewChild('toSelect') toSelect!: ElementRef<HTMLSelectElement>;
 
   formData!: FormGroup;
   minDate = new Date();
@@ -66,8 +76,36 @@ export class FormSearcherComponent {
     });
   }
 
+  onFromSelectionChange() {
+    const fromValue = this.fromSelect.nativeElement.value;
+    const toValue = this.toSelect.nativeElement.value;
+
+    if (fromValue === toValue) {
+      this.formData.patchValue({ to: null });
+    }
+
+    // this.toSelect.nativeElement.disabled = false;
+
+    const toOptions = this.toSelect.nativeElement.options;
+    for (let i = 0; i < toOptions.length; i++) {
+      const option = toOptions[i];
+      option.disabled = option.value === fromValue;
+    }
+  }
+
+  onToSelectionChange() {
+    const fromValue = this.fromSelect.nativeElement.value;
+    const toValue = this.toSelect.nativeElement.value;
+
+    if (toValue === fromValue) {
+      this.toSelect.nativeElement.value = '';
+    }
+  }
+
   searchTravel() {
     if (this.formData.invalid) return;
+
+    this.formData.updateValueAndValidity();
 
     const from = this.formData.value.from;
     const to = this.formData.value.to;
@@ -80,5 +118,6 @@ export class FormSearcherComponent {
     };
 
     this.data.emit(body);
+    this.formData.reset();
   }
 }
