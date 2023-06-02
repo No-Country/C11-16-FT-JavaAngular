@@ -1,6 +1,5 @@
 package com.nocountry.javaangular.domain;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,6 +39,8 @@ public class Trip {
     private Integer available_seats;
     private Integer children;
     private Integer adults;
+    @Column(columnDefinition="tinyint(1) default 0")
+    private Boolean pet_friendly;
 
     //private List<Integer> taken_seats;
     //private List<Integer> seats;
@@ -49,7 +50,7 @@ public class Trip {
     @JsonIgnore
     private List<Order> orders = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "id_company",
             nullable = true,
@@ -58,11 +59,18 @@ public class Trip {
     private Company company;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "favorites")
+    @JsonIgnore
     private List<Client> client_favorites;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "my_travels")
+    @JsonIgnore
     private List<Client> client_mytrips;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    private Hotel hotel;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "id_hotel",
+            nullable = true,
+            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_hotel) references hotels (id)")
+    )
+    private Hotel hotel;
 }

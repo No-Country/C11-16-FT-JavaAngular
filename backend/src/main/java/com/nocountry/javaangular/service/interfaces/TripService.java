@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface TripService {
     ResponseEntity<?> getById(Long id);
-    List<Trip> getFiltered(String type,String origin, String destination, Date departure, Double from, Double to,Integer children,Integer adults);
+    List<Trip> getFiltered(String type,String origin, String destination, Date departure, Double from, Double to,Integer children,Integer adults,Boolean  allowspets);
     ResponseEntity<Trip> modifyTrip(Trip tripupdate, Long id);
-    ResponseEntity<Trip> registerNewTrip(Trip newtrip);
+    ResponseEntity<?> registerNewTrip(Trip newtrip);
     ResponseEntity<Trip> deleteTrip(Long id);
 }
