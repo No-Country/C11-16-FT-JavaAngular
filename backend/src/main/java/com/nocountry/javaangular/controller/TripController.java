@@ -10,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/trip")
 @AllArgsConstructor
+@CrossOrigin("*")
 public class TripController {
     private final TripServiceImpl tripServiceImpl;
     @GetMapping("/id/{id}")

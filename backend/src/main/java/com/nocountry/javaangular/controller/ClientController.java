@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping("/client")
+@CrossOrigin("*")
 public class ClientController {
 	
 	private ClientService clientService;
