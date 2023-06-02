@@ -13,6 +13,5 @@ import java.util.Optional;
 public interface ReviewRepository extends CrudRepository<Review, Long> {
     @Query("SELECT r FROM Review r WHERE r.company.id = :companyId ORDER BY RAND() LIMIT 9")
     Optional<List<Review>> getNineReviews(@PathVariable Long companyId);
-
     List<Review> findAll();
 }
