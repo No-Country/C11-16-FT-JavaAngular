@@ -30,24 +30,21 @@ public class Client {
     @DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
     private LocalDate birth_date;
     private String profile_picture;
-    private Boolean is_admin;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "favorites_id", insertable = false, updatable = false)
     private List<Trip> favorites;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "my_travels_id", insertable = false, updatable = false)
     private List<Trip> my_travels;
-
-    @ManyToOne
-    @JoinColumn(
-    		name = "id_company",
-    		nullable = true,
-    		foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (id_company) references companies (id)")
-    )
-    private Company company;
     
     @OneToMany(mappedBy = "client")
     @JsonIgnore
     private List<Order> orders = new ArrayList<>();
+
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore
+    private List<Review> reviews = new ArrayList<>();
     
 }

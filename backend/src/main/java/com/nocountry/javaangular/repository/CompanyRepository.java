@@ -5,6 +5,5 @@ import org.springframework.stereotype.Repository;
 
 import com.nocountry.javaangular.domain.Company;
 @Repository
-public interface CompanyRepository extends JpaRepository<Company, Long>{
-
+public interface CompanyRepository extends JpaRepository<Company,Long> {
 }

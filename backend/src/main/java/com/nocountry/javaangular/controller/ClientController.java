@@ -51,8 +51,6 @@ public class ClientController {
 			clientDB.setCountry(newClient.getCountry());
 			clientDB.setBirth_date(newClient.getBirth_date());
 			clientDB.setProfile_picture(newClient.getProfile_picture());
-			clientDB.setIs_admin(newClient.getIs_admin());
-			clientDB.setCompany(newClient.getCompany());
 			
 			clientService.updateClient(clientDB);
 			json.put("mensaje", "Client successfully updated");

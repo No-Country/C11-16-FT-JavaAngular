@@ -14,12 +14,22 @@ import { CommunityComponent } from './components/community/community.component';
 import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
-  declarations: [HomeComponent, HeroComponent, SearcherComponent, FormSearcherComponent, PackagesSectionComponent, MostChosenComponent, CommunityComponent, RatingComponent],
+  declarations: [
+    HomeComponent,
+    HeroComponent,
+    SearcherComponent,
+    FormSearcherComponent,
+    PackagesSectionComponent,
+    MostChosenComponent,
+    CommunityComponent,
+    RatingComponent,
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     PrimeNgModule,
     ReactiveFormsModule,
   ],
+  exports: [HeroComponent, MostChosenComponent],
 })
 export class HomeModule {}

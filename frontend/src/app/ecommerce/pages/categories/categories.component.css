@@ -1,0 +1,48 @@
+.travells__container {
+  width: 95%;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.travells__left,
+.travells__rigth {
+  width: 100%;
+  max-height: 732px;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.travells__left {
+  max-width: 350px;
+  gap: 2rem;
+}
+
+.travells__filter--provinces {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form__container {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.travells__rigth {
+  padding: 3.5rem;
+  overflow-y: scroll;
+}
+
+h3 {
+  font-weight: 600;
+}

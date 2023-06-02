@@ -1,15 +1,20 @@
 package com.nocountry.javaangular.domain;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.sql.Date;
 import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,12 +26,26 @@ public class Review {
     private Long id;
     private String content;
     private Double rating;
-    @DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE)
-    private LocalDate posted_date;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy.MM.dd", iso = DateTimeFormat.ISO.DATE)
+    private Date createdDateTime;
     
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(
+            name = "client_id",
+            nullable = true,
+            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (client_id) references clients (id)")
+    )
     private Client client;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    
+    @ManyToOne
+    @JoinColumn(
+            name = "company_id",
+            nullable = true,
+            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (company_id) references companies (id)")
+    )
+    @JsonIdentityInfo(
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "id")
     private Company company;
 }

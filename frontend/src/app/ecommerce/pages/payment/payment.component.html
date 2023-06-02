@@ -1,0 +1,107 @@
+<section class="payment__container">
+  <h2>Realizá tu pago</h2>
+
+  <article class="payment__content">
+    <h3>Pagar con tarjeta de crédito o débito</h3>
+
+    <div class="payment__info">
+      <div class="payment__left">
+        <div class="payment__order">
+          <p>Tu órden</p>
+
+          <span>1 Item</span>
+        </div>
+
+        <div class="payment__details">
+          <div class="payment__details--left">
+            <h4>Hotel Llao Llao</h4>
+            <p>San Carlos de Bariloche</p>
+            <p>Dos adultos</p>
+            <p>7 días - 8 noches</p>
+          </div>
+
+          <div class="payment__details--rigth">
+            <p class="price">$105.99</p>
+            <p class="taxes">No incluye impuestos</p>
+
+            <button>Ver detalles</button>
+          </div>
+        </div>
+
+        <div class="payment__prices">
+          <p class="payment__taxes">Total impuestos: $xxxx</p>
+          <p class="payment__total">Total a pagar: $xxxx</p>
+        </div>
+      </div>
+
+      <div class="payment__rigth">
+        <div class="payment__confirm">
+          <h4>Confirmar el pago</h4>
+          <img
+            src="../../../../assets/images/tarjetas.jpg"
+            alt="tarjetas"
+            height="30"
+          />
+        </div>
+
+        <form action="">
+          <div class="input-group">
+            <input
+              required=""
+              type="text"
+              name="text"
+              autocomplete="off"
+              class="input"
+            />
+            <label class="user-label">Nombre de la tarjeta</label>
+          </div>
+
+          <div class="input-group">
+            <input
+              required=""
+              type="text"
+              name="text"
+              autocomplete="off"
+              class="input"
+            />
+            <label class="user-label">Número de la tarjeta</label>
+          </div>
+
+          <div class="two__input">
+            <div class="input-group">
+              <input
+                required=""
+                type="text"
+                name="text"
+                autocomplete="off"
+                class="input"
+              />
+              <label class="user-label">Vencimiento</label>
+            </div>
+            <div class="input-group">
+              <input
+                required=""
+                type="text"
+                name="text"
+                autocomplete="off"
+                class="input"
+              />
+              <label class="user-label">CVV</label>
+            </div>
+          </div>
+
+          <button type="submit" routerLink="../resumen">CONFIRMAR</button>
+        </form>
+      </div>
+    </div>
+  </article>
+
+  <article class="payments__others">
+    <h3>
+      Si abonás con Mercado Pago, presioná Continuar y te redirigiremos a la
+      página.
+    </h3>
+
+    <button>CONTINUAR</button>
+  </article>
+</section>

@@ -20,6 +20,15 @@
 
 body {
   font-family: "Open Sans", sans-serif;
+  background-color: #fdfbf8;
+}
+
+input {
+  background-color: #fdfbf8;
+}
+
+textarea {
+  background-color: #fdfbf8;
 }
 
 a,

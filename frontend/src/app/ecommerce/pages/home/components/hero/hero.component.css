@@ -26,9 +26,6 @@
   font-size: 2rem;
 }
 
-/* .searcher {
-} */
-
 .title {
   font-size: 2.5em;
   font-weight: 800;
@@ -36,4 +33,13 @@
 
 .subtitle {
   font-size: 1.5em;
+}
+
+@media (width <= 890px) {
+  .hero__container {
+    height: calc(100vh - 156px);
+  }
+  .hero__text {
+    font-size: 1.5rem;
+  }
 }
