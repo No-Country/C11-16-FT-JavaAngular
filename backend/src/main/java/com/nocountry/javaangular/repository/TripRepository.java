@@ -12,6 +12,7 @@ public interface TripRepository extends JpaRepository<Trip,Long> {
             "AND (:from IS NULL OR c.price >= :from) AND (:to IS NULL OR c.price <= :to) " +
             "AND (:origin IS NULL OR c.origin LIKE CONCAT('%',:origin,'%')) AND (:destination IS NULL OR c.destination LIKE CONCAT('%',:destination,'%'))" +
             "AND (:departure IS NULL OR  c.departure = :departure)" +
-            "AND (:children IS NULL OR  c.children >= :children) AND (:adults IS NULL OR  c.adults >= :adults)")
-    List<Trip> getFiltered(String type,String origin, String destination, Date departure, Double from, Double to,Integer children,Integer adults);
+            "AND (:children IS NULL OR  c.children >= :children) AND (:adults IS NULL OR  c.adults >= :adults)" +
+            "AND (:allowspets IS NULL OR c.pet_friendly = :allowspets)")
+    List<Trip> getFiltered(String type,String origin, String destination, Date departure, Double from, Double to,Integer children,Integer adults,Boolean  allowspets);
 }
