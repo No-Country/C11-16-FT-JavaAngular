@@ -51,10 +51,11 @@ public class SecurityConfig {
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
 			.authorizeHttpRequests()
-			.requestMatchers("/users/**").permitAll()
-			.requestMatchers(HttpMethod.POST, "/order/createOrder").hasAuthority("ADMIN")
-			.requestMatchers(HttpMethod.PUT, "/order/updateOrder/**").hasAuthority("ADMIN")
-			.requestMatchers(HttpMethod.GET, "/order/searchxId/**").hasAnyAuthority("ADMIN","USER")
+			.requestMatchers("/client/**",
+					"/company/listCompanies", "/company/searchCompanyId/**",
+					"/order/searchOrderId/**",
+					"/review/all", "/review/nine/**",
+					"/trip/listAll", "/trip/id/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
 			.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint);

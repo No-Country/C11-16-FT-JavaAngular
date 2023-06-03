@@ -4,6 +4,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.nocountry.javaangular.domain.Client;
+import com.nocountry.javaangular.domain.Rol;
+import com.nocountry.javaangular.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,18 +16,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.nocountry.domain.Rol;
-import com.nocountry.domain.Users;
-import com.nocountry.repository.UsersRepository;
 
 @Service
 public class CustomUsersDetailsService implements UserDetailsService{
 	
-	private UsersRepository usersRepository;
+	private ClientRepository clientRepository;
 	
 	@Autowired
-	public CustomUsersDetailsService(UsersRepository usersRepository) {
-		this.usersRepository = usersRepository;
+	public CustomUsersDetailsService(ClientRepository clientRepository) {
+		this.clientRepository = clientRepository;
 	}
 	
 	public Collection<GrantedAuthority>mapToAuthorities(List<Rol>roles){
@@ -34,7 +34,7 @@ public class CustomUsersDetailsService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Users email = usersRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("Email no encontrado"));
+		Client email = clientRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("Email no encontrado"));
 		return new User(email.getEmail(), email.getPassword(), mapToAuthorities(email.getRoles()));
 		
 	}

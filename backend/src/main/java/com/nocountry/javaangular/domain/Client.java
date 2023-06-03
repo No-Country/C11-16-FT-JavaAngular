@@ -46,5 +46,11 @@ public class Client {
     @OneToMany(mappedBy = "client")
     @JsonIgnore
     private List<Review> reviews = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id")
+            , inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id_rol"))
+    private List<Rol> roles = new ArrayList<>();
     
 }
