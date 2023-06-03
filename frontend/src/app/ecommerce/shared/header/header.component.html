@@ -25,12 +25,13 @@
   </div>
 
   <div class="form__container">
-    <form>
+    <form [formGroup]="searchForm" (ngSubmit)="SearchFormTravel()">
       <label for="searchTravelHeader">¿A dónde te gustaría viajar?</label>
       <input
         type="text"
         id="searchTravelHeader"
         placeholder="Buscar por palabra, ej: Salta"
+        formControlName="destination"
       />
     </form>
   </div>

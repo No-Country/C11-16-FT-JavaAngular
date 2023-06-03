@@ -1,14 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-
-interface Travell {
-  id: number;
-  title: string;
-  location: string;
-  option: string;
-  days: string;
-  price: number;
-}
+import {
+  DataFormFilter,
+  SearchDestination,
+} from 'src/app/interfaces/data-form.interface';
+import { TripModifie } from 'src/app/interfaces/trip_interface';
+import { DataService } from 'src/app/services/data.service';
 
 interface Popular {
   id: number;
@@ -23,11 +20,17 @@ interface Popular {
 })
 export class CategoriesComponent {
   form!: FormGroup;
-  form3!: FormGroup;
+  form2!: FormGroup;
 
   formBuilder = inject(FormBuilder);
+  dataService = inject(DataService);
+
+  travellsArray!: TripModifie[];
 
   ngOnInit() {
+    this.dataService.formData$.subscribe((formData) => {
+      this.searchTrip(formData!);
+    });
     this.form = new FormGroup({});
 
     for (const option of this.options) {
@@ -39,14 +42,14 @@ export class CategoriesComponent {
       console.log(values); // Valores seleccionados
     });
 
-    this.form3 = new FormGroup({});
+    this.form2 = new FormGroup({});
 
     for (const option of this.options2) {
-      this.form3.addControl(option.value, new FormControl(false));
+      this.form2.addControl(option.value, new FormControl(false));
     }
 
     // Suscribirse a los cambios del formulario reactivo
-    this.form3.valueChanges.subscribe((values) => {
+    this.form2.valueChanges.subscribe((values) => {
       console.log(values); // Valores seleccionados
     });
   }
@@ -96,41 +99,6 @@ export class CategoriesComponent {
     { name: 'Pet Friendly', value: 'pet friendly' },
   ];
 
-  travellsArray = [
-    {
-      id: 1,
-      title: 'Hotel Llao Llao',
-      location: 'San Carlos de Bariloche',
-      option: 'Dos adultos',
-      days: '7 días - 8 noches',
-      price: 105999,
-    },
-    {
-      id: 2,
-      title: 'Hotel Titan',
-      location: 'Calafate',
-      option: '2 adultos, 2 menores',
-      days: '10 días - 9 noches',
-      price: 230599,
-    },
-    {
-      id: 3,
-      title: 'Hotel Madero ',
-      location: 'CABA, Buenos Aires',
-      option: 'Un adulto',
-      days: '5 días - 5 noches',
-      price: 99999,
-    },
-    {
-      id: 4,
-      title: 'Sofitel La Reserva',
-      location: 'Cardales',
-      option: 'Grupo familiar con 2 menores',
-      days: '6 días - 6 noches',
-      price: 24599,
-    },
-  ];
-
   popularArray: Popular[] = [
     {
       id: 6,
@@ -148,4 +116,26 @@ export class CategoriesComponent {
       img: '../../../../../../assets/images/montaña-min-dos.png',
     },
   ];
+
+  searchTrip(formData: DataFormFilter) {
+    this.dataService.searchTrip(formData).subscribe((data) => {
+      console.log(data);
+
+      this.travellsArray = data.map((trip) => {
+        return {
+          id: trip.id,
+          type: trip.type,
+          origin: trip.origin,
+          destination: trip.destination,
+          price: trip.price,
+          departure: trip.departure,
+          image: trip.image,
+          children: trip.children,
+          adults: trip.adults,
+          pet_friendly: trip.pet_friendly,
+          hotel: trip.hotel,
+        };
+      });
+    });
+  }
 }

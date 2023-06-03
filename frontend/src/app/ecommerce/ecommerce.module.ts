@@ -9,6 +9,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { SummaryPurchaseComponent } from './pages/summary-purchase/summary-purchase.component';
 import { ViewTravellComponent } from './pages/view-travell/view-travell.component';
 import { CardsTravellsComponent } from './components/cards-travells/cards-travells.component';
+import { OptionFilterPipe } from '../pipes/option-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CardsTravellsComponent } from './components/cards-travells/cards-travel
     SummaryPurchaseComponent,
     ViewTravellComponent,
     CardsTravellsComponent,
+    OptionFilterPipe,
   ],
   imports: [CommonModule, EcommerceRoutingModule, SharedModule, HomeModule],
   exports: [CardsTravellsComponent],

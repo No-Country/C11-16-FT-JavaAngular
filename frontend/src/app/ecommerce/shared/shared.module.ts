@@ -4,10 +4,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AuthModule } from 'src/app/auth/auth.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
-  imports: [CommonModule, RouterModule, AuthModule],
+  imports: [CommonModule, RouterModule, AuthModule, ReactiveFormsModule],
   exports: [HeaderComponent, FooterComponent],
 })
 export class SharedModule {}

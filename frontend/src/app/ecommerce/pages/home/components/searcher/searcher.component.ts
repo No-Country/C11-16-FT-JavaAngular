@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
-
-interface Data {
-  from: string;
-  to: string;
-  date: string;
-  option?: string;
-}
+import { Component, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataFormFilter } from 'src/app/interfaces/data-form.interface';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-searcher',
@@ -13,12 +9,21 @@ interface Data {
   styleUrls: ['./searcher.component.css'],
 })
 export class SearcherComponent {
-  formData!: Data;
+  formData!: DataFormFilter;
   selectedOption: string = 'avion';
 
-  viewData(data: Data) {
+  dataService = inject(DataService);
+  router = inject(Router);
+
+  viewData(data: DataFormFilter) {
     this.formData = data;
-    this.formData.option = this.selectedOption;
+    this.formData.type = this.selectedOption;
     console.log(this.formData);
+
+    this.dataService.setFormData(this.formData);
+
+    if (this.router.routerState.snapshot.url !== '/viajes') {
+      this.router.navigateByUrl('/viajes');
+    }
   }
 }

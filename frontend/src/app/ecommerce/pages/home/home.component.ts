@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 interface PackageArray {
   id: number;
