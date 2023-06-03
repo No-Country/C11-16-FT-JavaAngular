@@ -23,6 +23,7 @@ public class Hotel {
     private String contact;
     private String description;
     private List<String> items;
+    private String estadia;
 
     @OneToMany(mappedBy = "hotel")
     @JsonIgnore
