@@ -16,11 +16,11 @@ public class HotelController {
 
     private HotelService hotelservice;
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id){
         return hotelservice.getById(id);
     }
-    @PostMapping("/")
+    @PostMapping("/registerHotel")
     public ResponseEntity<?> registerHotel(@RequestBody Hotel newhotel){
         return hotelservice.registerHotel(newhotel);
     }

@@ -18,7 +18,7 @@ public class TripController {
     public ResponseEntity<?> getById(@PathVariable Long id){
         return tripServiceImpl.getById(id);
     }
-    @GetMapping("/")
+    @GetMapping("/listAll")
     public List<Trip> getFiltered(@RequestParam(required = false) String type,
                                   @RequestParam(required = false) String origin,
                                   @RequestParam(required = false) String destination,
