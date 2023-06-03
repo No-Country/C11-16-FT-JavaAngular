@@ -1,6 +1,7 @@
 package com.nocountry.javaangular.controller;
 import com.nocountry.javaangular.domain.Trip;
 import com.nocountry.javaangular.service.implementation.TripServiceImpl;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,16 +25,17 @@ public class TripController {
                                   @RequestParam(required = false) Date departure,
                                   @RequestParam(required = false) Double from,
                                   @RequestParam(required = false) Double to,
+                                  @RequestParam(required = false) Boolean  allowspets,
                                   @RequestParam(required = false) Integer children,
                                   @RequestParam(required = false) Integer adults){
-        return tripServiceImpl.getFiltered(type,origin,destination,departure,from,to,children,adults);
+        return tripServiceImpl.getFiltered(type,origin,destination,departure,from,to,children,adults,allowspets);
     }
     @PutMapping("/{id}")
     public ResponseEntity<Trip> modifyTrip(@RequestBody Trip tripupdate,@PathVariable Long id){
         return tripServiceImpl.modifyTrip(tripupdate,id);
     }
     @PostMapping("/")
-    public ResponseEntity<Trip> registerNewTrip(@RequestBody Trip newtrip){
+    public ResponseEntity<?> registerNewTrip(@RequestBody Trip newtrip){
         return tripServiceImpl.registerNewTrip(newtrip);
     }
     @DeleteMapping("/{id}")

@@ -1,5 +1,6 @@
 package com.nocountry.javaangular.domain;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,28 +9,22 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "companies")
-public class Company {
+@Table(name = "hotels")
+public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String contact_number;
+    private String title;
+    private String ubicacion;
+    private String contact;
+    private String description;
+    private List<String> items;
 
-    private String contact_links;
-    
-    @OneToMany(mappedBy = "company")
-    @JsonIgnore
-    private List<Review> reviews = new ArrayList<>();
-
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "hotel")
     @JsonIgnore
     private List<Trip> trips = new ArrayList<>();
-     
 }

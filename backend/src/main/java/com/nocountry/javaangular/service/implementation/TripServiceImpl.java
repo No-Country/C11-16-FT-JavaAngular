@@ -1,8 +1,13 @@
 package com.nocountry.javaangular.service.implementation;
+import com.nocountry.javaangular.domain.Company;
+import com.nocountry.javaangular.domain.Hotel;
 import com.nocountry.javaangular.domain.Trip;
+import com.nocountry.javaangular.repository.CompanyRepository;
+import com.nocountry.javaangular.repository.HotelRepository;
 import com.nocountry.javaangular.repository.TripRepository;
 import com.nocountry.javaangular.service.interfaces.TripService;
 import lombok.AllArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.sql.Date;
@@ -14,6 +19,8 @@ import java.util.Optional;
 public class TripServiceImpl  implements TripService {
 
     private final TripRepository repository;
+    private final HotelRepository repositoryHotel;
+    private final CompanyRepository repositoryCompany;
     @Override
     public ResponseEntity<?> getById(Long id) {
         Optional<Trip> result = repository.findById(id);
@@ -23,8 +30,8 @@ public class TripServiceImpl  implements TripService {
         return ResponseEntity.ok(result);
     }
     @Override
-    public List<Trip> getFiltered(String type,String origin, String destination, Date departure, Double from, Double to,Integer children,Integer adults) {
-        return repository.getFiltered(type,origin,destination,departure,from,to,children,adults);
+    public List<Trip> getFiltered(String type,String origin, String destination, Date departure, Double from, Double to,Integer children,Integer adults,Boolean  allowspets) {
+        return repository.getFiltered(type,origin,destination,departure,from,to,children,adults,allowspets);
     }
     @Override
     public ResponseEntity<Trip> modifyTrip(Trip tripupdate, Long id) {
@@ -72,8 +79,29 @@ public class TripServiceImpl  implements TripService {
         return ResponseEntity.ok(repository.save(result.get()));
     }
     @Override
-    public ResponseEntity<Trip> registerNewTrip(Trip newtrip) {
-        return ResponseEntity.ok(repository.save(newtrip));
+    public ResponseEntity<?> registerNewTrip(Trip newtrip) {
+        if(newtrip.getHotel()!=null){
+            Optional<Hotel> result = repositoryHotel.findById(newtrip.getHotel().getId());
+            if(result.isPresent()){
+                List<Trip> newlist = result.get().getTrips();
+                newlist.add(newtrip);
+                result.get().setTrips(newlist);
+                repositoryHotel.save(result.get());
+                newtrip.setHotel(result.get());
+            }
+        }
+
+    if(newtrip.getCompany()!=null){
+        Optional<Company> company = repositoryCompany.findById(newtrip.getCompany().getId());
+        if(company.isPresent()){
+            List<Trip> newlist = company.get().getTrips();
+            newlist.add(newtrip);
+            company.get().setTrips(newlist);
+            repositoryCompany.save(company.get());
+            newtrip.setCompany(company.get());
+        }
+    }
+            return ResponseEntity.ok(repository.save(newtrip));
     }
     @Override
     public ResponseEntity<Trip> deleteTrip(Long id) {
