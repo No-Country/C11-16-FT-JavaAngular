@@ -25,6 +25,7 @@ public class Company {
     private String contact_links;
     
     @OneToMany(mappedBy = "company")
+    @JsonIgnore
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "company")
