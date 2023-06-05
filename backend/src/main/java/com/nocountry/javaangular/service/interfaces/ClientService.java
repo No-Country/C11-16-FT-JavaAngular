@@ -8,4 +8,6 @@ public interface ClientService {
 	Client searchById(Long id);
 	void updateClient(Client client);
 
+	Client getClientByEmail(String clientId);
+
 }

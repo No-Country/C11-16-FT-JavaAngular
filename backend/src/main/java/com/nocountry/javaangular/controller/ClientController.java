@@ -86,7 +86,10 @@ public class ClientController {
 		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 				dtoLogin.getEmail(), dtoLogin.getPassword()));
 		SecurityContextHolder.getContext().setAuthentication(authentication);
-		String token = jwtGenerator.generateToken(authentication);
+
+		Client client = clientService.getClientByEmail(dtoLogin.getEmail());
+
+		String token = jwtGenerator.generateToken(authentication, String.valueOf(client.getId()));
 		return new ResponseEntity<>(new DtoAuthResponse(token), HttpStatus.OK);
 	}
     

@@ -32,4 +32,9 @@ public class ClientServiceImpl implements ClientService{
 		clientRepository.saveAndFlush(client);
 	}
 
+	@Override
+	public Client getClientByEmail(String clientId) {
+		return clientRepository.getClientByEmail(clientId);
+	};
+
 }
