@@ -1,0 +1,5 @@
+<section class="auth__container">
+  <div *ngIf="login">
+    <app-login (showLogin)="handleEvent($event)"></app-login>
+  </div>
+</section>

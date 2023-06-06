@@ -58,3 +58,7 @@ i {
 .click {
   cursor: pointer;
 }
+
+a {
+  color: var(--text-color-secondary);
+}

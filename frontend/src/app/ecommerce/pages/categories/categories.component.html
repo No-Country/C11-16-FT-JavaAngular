@@ -26,7 +26,7 @@
     <div>
       <h3>Filtrar por cantidad</h3>
 
-      <form [formGroup]="form3" class="form__container">
+      <form [formGroup]="form2" class="form__container">
         <div *ngFor="let option of options2">
           <label>
             <input type="checkbox" [formControlName]="option.value" />
@@ -38,11 +38,18 @@
   </article>
 
   <article class="travells__rigth">
-    <app-cards-travells
-      *ngFor="let card of travellsArray"
-      [travell]="card"
-    ></app-cards-travells>
+    <div class="travells__card" *ngIf="travellsArray; else loading">
+      <p *ngIf="travellsArray.length === 0">No se encontraron coincidencias</p>
+      <app-cards-travells
+        *ngFor="let card of travellsArray"
+        [travell]="card"
+      ></app-cards-travells>
+    </div>
   </article>
 </section>
 
 <app-most-chosen [popular]="popularArray"></app-most-chosen>
+
+<ng-template #loading class="loading">
+  <app-loading style="height: 100%"></app-loading>
+</ng-template>

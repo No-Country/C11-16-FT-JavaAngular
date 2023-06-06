@@ -15,23 +15,49 @@
       </ul>
     </nav>
 
-    <button class="header__auth--buton" (click)="showAuth()">
+    <button
+      class="header__auth--buton"
+      (click)="showAuth()"
+      *ngIf="!isLoged; else userInfo"
+    >
       Ingresar <i class="pi pi-user"></i>
     </button>
 
-    <div class="header__auth" *ngIf="showAuthHeader">
-      <app-login></app-login>
+    <div
+      class="header__auth"
+      *ngIf="showAuthHeader"
+      [ngClass]="{ 'header__auth--options': userData, header__auth: !userData }"
+    >
+      <div *ngIf="!userData; else userOptions">
+        <app-main></app-main>
+      </div>
     </div>
   </div>
 
   <div class="form__container">
-    <form>
+    <form [formGroup]="searchForm" (ngSubmit)="SearchFormTravel()">
       <label for="searchTravelHeader">¿A dónde te gustaría viajar?</label>
       <input
         type="text"
         id="searchTravelHeader"
         placeholder="Buscar por palabra, ej: Salta"
+        formControlName="destination"
       />
     </form>
   </div>
 </header>
+
+<ng-template #userInfo>
+  <div class="user__info" *ngIf="userData" (click)="showMenu()">
+    <h2>Hola! {{ userData.name }}</h2>
+    <img
+      [src]="userData.profile_picture"
+      [alt]="'Foto de perfil de ' + userData.name"
+      width="50"
+    />
+  </div>
+</ng-template>
+
+<ng-template #userOptions>
+  <app-user-menu></app-user-menu>
+</ng-template>

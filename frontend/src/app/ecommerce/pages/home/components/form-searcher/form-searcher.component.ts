@@ -7,6 +7,7 @@ import {
   inject,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataService } from 'src/app/services/data.service';
 
 interface City {
   name: string;
@@ -14,9 +15,9 @@ interface City {
 }
 
 interface Data {
-  from: string;
-  to: string;
-  date: string;
+  origin: string;
+  destination: string;
+  departure: string;
   option?: string;
 }
 
@@ -36,6 +37,8 @@ export class FormSearcherComponent {
   cities!: City[];
 
   formBuilder = inject(FormBuilder);
+
+  dataService = inject(DataService);
 
   ngOnInit() {
     this.cities = [
@@ -109,12 +112,18 @@ export class FormSearcherComponent {
 
     const from = this.formData.value.from;
     const to = this.formData.value.to;
+
     const date = this.formData.value.date;
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    const dateString = `${year}-${month}-${day}`;
 
     const body = {
-      from,
-      to,
-      date,
+      origin: from,
+      destination: to,
+      departure: dateString,
     };
 
     this.data.emit(body);

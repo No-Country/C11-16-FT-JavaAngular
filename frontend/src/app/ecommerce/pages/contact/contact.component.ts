@@ -14,6 +14,8 @@ export class ContactComponent implements OnInit {
   http = inject(HttpClient);
 
   ngOnInit(): void {
+    window.scroll(0, 1009);
+
     this.datos = new FormGroup({
       fullName: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),

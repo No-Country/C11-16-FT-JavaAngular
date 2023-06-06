@@ -6,5 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./purchasing-policies.component.css'],
 })
 export class PurchasingPoliciesComponent implements OnInit {
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.scroll(0, 1009);
+  }
 }
