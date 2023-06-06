@@ -18,9 +18,27 @@
   list-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-timeline: 5s ease-in-out;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #fdfbf8;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 20px;
 }
 
 input {

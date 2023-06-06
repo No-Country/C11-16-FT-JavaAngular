@@ -5,9 +5,10 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AuthModule } from 'src/app/auth/auth.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserMenuComponent } from './components/user-menu/user-menu.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponent, FooterComponent, UserMenuComponent],
   imports: [CommonModule, RouterModule, AuthModule, ReactiveFormsModule],
   exports: [HeaderComponent, FooterComponent],
 })

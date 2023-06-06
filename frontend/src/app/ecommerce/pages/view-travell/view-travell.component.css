@@ -1,6 +1,7 @@
 .travell__container {
   width: 95%;
   max-width: 1200px;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 5rem 0;
   display: flex;
@@ -45,10 +46,11 @@ li {
 }
 
 .travell__info--left {
+  justify-content: space-around;
 }
 
 h2,
-div + div p:first-child {
+div + div p:nth-child(1) {
   padding-bottom: 2rem;
 }
 
@@ -79,4 +81,8 @@ button {
   color: var(--header-color);
   font-weight: bold;
   font-size: 1.1rem;
+}
+
+.loading {
+  height: 100vh;
 }

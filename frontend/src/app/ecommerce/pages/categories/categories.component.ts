@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {
   DataFormFilter,
@@ -18,7 +18,7 @@ interface Popular {
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css'],
 })
-export class CategoriesComponent {
+export class CategoriesComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   form2!: FormGroup;
 
@@ -28,6 +28,8 @@ export class CategoriesComponent {
   travellsArray!: TripModifie[];
 
   ngOnInit() {
+    window.scroll(0, 1009);
+
     this.dataService.formData$.subscribe((formData) => {
       this.searchTrip(formData!);
     });
@@ -52,6 +54,10 @@ export class CategoriesComponent {
     this.form2.valueChanges.subscribe((values) => {
       console.log(values); // Valores seleccionados
     });
+  }
+
+  ngOnDestroy() {
+    this.dataService.setFormData(null);
   }
 
   options = [
@@ -90,12 +96,6 @@ export class CategoriesComponent {
     },
     { name: 'Pet Friendly', value: 'pet friendly' },
     { name: 'Cuatro adultos', value: 'cuatro adultos' },
-    { name: 'Pet Friendly', value: 'pet friendly' },
-    { name: 'Pet Friendly', value: 'pet friendly' },
-    { name: 'Pet Friendly', value: 'pet friendly' },
-    { name: 'Pet Friendly', value: 'pet friendly' },
-    { name: 'Pet Friendly', value: 'pet friendly' },
-    { name: 'Pet Friendly', value: 'pet friendly' },
     { name: 'Pet Friendly', value: 'pet friendly' },
   ];
 

@@ -38,11 +38,18 @@
   </article>
 
   <article class="travells__rigth">
-    <app-cards-travells
-      *ngFor="let card of travellsArray"
-      [travell]="card"
-    ></app-cards-travells>
+    <div class="travells__card" *ngIf="travellsArray; else loading">
+      <p *ngIf="travellsArray.length === 0">No se encontraron coincidencias</p>
+      <app-cards-travells
+        *ngFor="let card of travellsArray"
+        [travell]="card"
+      ></app-cards-travells>
+    </div>
   </article>
 </section>
 
 <app-most-chosen [popular]="popularArray"></app-most-chosen>
+
+<ng-template #loading class="loading">
+  <app-loading style="height: 100%"></app-loading>
+</ng-template>

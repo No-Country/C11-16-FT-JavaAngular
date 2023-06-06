@@ -16,7 +16,7 @@ export interface Trip {
   adults: number;
   pet_friendly: boolean;
   company: Company;
-  hotel: Hotel | null;
+  hotel: Hotel;
 }
 
 export interface Company {
@@ -33,6 +33,7 @@ export interface Hotel {
   contact: string;
   description: string;
   items: string[];
+  estadia: string;
 }
 
 export interface TripModifie {

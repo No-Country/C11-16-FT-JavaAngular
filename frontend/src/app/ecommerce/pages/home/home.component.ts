@@ -29,7 +29,11 @@ interface Travellers {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  ngOnInit(): void {
+    window.scroll(0, 0);
+  }
+
   packageArray: PackageArray[] = [
     {
       id: 1,

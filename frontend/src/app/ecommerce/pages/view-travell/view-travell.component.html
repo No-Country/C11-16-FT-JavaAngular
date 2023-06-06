@@ -1,53 +1,41 @@
 <section class="travell__container">
-  <article class="travell__content">
-    <img src="../../../../assets/images/paquete4.png" alt="" />
+  <article class="travell__content" *ngIf="trip; else loading">
+    <img [src]="trip.image" alt="" />
 
     <div class="travell__info">
       <div class="travell__info--left">
         <div>
-          <h2>Gran Meliá Iguazú</h2>
+          <h2>{{ trip.hotel.title }}</h2>
           <p>
-            Dirección: Dirección: Ent. A Parque Nacional Iguazú S/N, N3370
-            Puerto Iguazú, Misiones
+            Dirección: Ent. A Parque Nacional Iguazú S/N, N3370 Puerto Iguazú,
+            Misiones
           </p>
-          <p>Teléfono: 03757 49-1800</p>
+          <p>Teléfono: {{ trip.hotel.contact }}</p>
         </div>
 
         <div>
-          <p>Junior Suite Queen - Edificio Bustillo</p>
-          <p>48m² _metros cuadrados</p>
+          <p>{{ trip.hotel.description }}</p>
 
           <p>Servicios en la habitación:</p>
           <ul>
-            <li>Desayuno buffet</li>
-            <li>Almohadas adicionales</li>
-            <li>Primeros auxilios disponibles</li>
-            <li>Ropa de cama/almohadas sin plumas disponibles</li>
-            <li>Bata de baño</li>
-            <li>Wifi gratuito en la habitación</li>
-            <li>Bidé</li>
-            <li>Secador de pelo</li>
-            <li>Televisor a control remoto</li>
-            <li>Zapatillas</li>
-            <li>Escritorio</li>
-            <li>Tabla de planchar</li>
-            <li>Servicio de despertador</li>
-            <li>Teléfono</li>
-            <li>Minibar</li>
+            <li *ngFor="let item of trip.hotel.items">{{ item }}</li>
           </ul>
         </div>
       </div>
 
       <div class="travell__info--rigth">
         <div class="text__rigth">
-          <p>Dos adultos</p>
-          <p>7 días - 8 noches</p>
+          <p>{{ trip | optionFilter }}</p>
+          <p>{{ trip.hotel.estadia }}</p>
           <p>Fechas:</p>
-          <p>xx/xx al xx/xx</p>
+          <p>
+            {{ trip.arrival | date : "shortDate" }} al
+            {{ trip.arrival | dateTransform | date : "shortDate" }}
+          </p>
         </div>
 
         <div>
-          <p class="price">$155.999</p>
+          <p class="price">{{ trip.price | currency : "" : "$" }}</p>
           <p class="taxes">No incluye impuestos</p>
         </div>
 
@@ -56,3 +44,7 @@
     </div>
   </article>
 </section>
+
+<ng-template #loading class="loading">
+  <app-loading></app-loading>
+</ng-template>

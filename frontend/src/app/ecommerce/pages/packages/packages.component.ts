@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 interface Travell {
   id: number;
@@ -20,7 +20,11 @@ interface Popular {
   templateUrl: './packages.component.html',
   styleUrls: ['./packages.component.css'],
 })
-export class PackagesComponent {
+export class PackagesComponent implements OnInit {
+  ngOnInit(): void {
+    window.scroll(0, 1009);
+  }
+
   travellsArray = [
     {
       id: 1,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 interface Popular {
   id: number;
@@ -11,7 +11,11 @@ interface Popular {
   templateUrl: './summary-purchase.component.html',
   styleUrls: ['./summary-purchase.component.css'],
 })
-export class SummaryPurchaseComponent {
+export class SummaryPurchaseComponent implements OnInit {
+  ngOnInit(): void {
+    window.scroll(0, 1009);
+  }
+
   popularArray: Popular[] = [
     {
       id: 6,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 
 interface RedesSociales {
   name: string;
@@ -31,4 +31,8 @@ export class FooterComponent {
       icon: 'pi pi-twitter',
     },
   ];
+
+  clickToTop() {
+    window.scroll(0, 0);
+  }
 }
