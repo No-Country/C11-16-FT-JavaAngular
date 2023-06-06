@@ -4,7 +4,15 @@
   <p>Para registrarte, es necesario que completes los siguientes datos:</p>
 
   <picture>
-    <img [src]="imageDefault" alt="" width="200" />
+    <img
+      [src]="
+        registerForm.value.profile_picture
+          ? registerForm.value.profile_picture
+          : imageDefault
+      "
+      alt=""
+      width="200"
+    />
   </picture>
 
   <form class="form__auth" [formGroup]="registerForm" (ngSubmit)="register()">
