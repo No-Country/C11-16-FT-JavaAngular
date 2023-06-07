@@ -37,10 +37,16 @@ El equipo detrás de Tango Viajes está conformado por talentosos profesionales 
 
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white) 
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=CSS3&logoColor=white) 
-![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=Bootstrap&logoColor=white) 
+![PrimeNg](https://img.shields.io/badge/PrimeNg-E23237?style=for-the-badge&logo=Prime%20ng&logoColor=white) 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white) 
 ![Angular](https://img.shields.io/badge/Angular-E23237?style=for-the-badge&logo=Angular&logoColor=white) 
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white)
+![keen-slider](https://img.shields.io/badge/keen_slider-C06B93?style=for-the-badge&logo=keen-slider&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-22A7F2?style=for-the-badge&logo=Visual%20studio&logoColor=white)
+![Nodejs](https://img.shields.io/badge/Node_Js-026E00?style=for-the-badge&logo=Node&logoColor=white)
+![Nodemailer](https://img.shields.io/badge/Nodemailer-29ABE2?style=for-the-badge&logo=Nodemailer&logoColor=white)
+![Notiflix](https://img.shields.io/badge/Notiflix-32C682?style=for-the-badge&logo=Notiflix&logoColor=white)
+![Express](https://img.shields.io/badge/Express-303030?style=for-the-badge&logo=Express&logoColor=white)
 
 #### 🧑‍💻 Developers:
 
@@ -59,6 +65,11 @@ El equipo detrás de Tango Viajes está conformado por talentosos profesionales 
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=Spring%20Boot&logoColor=white)
 ![MYSQL](https://img.shields.io/badge/MySQL-336791?style=for-the-badge&logo=MYSQL&logoColor=white)
 ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-853BCE?style=for-the-badge&logo=Railway&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-6DB33F?style=for-the-badge&logo=Lombok&logoColor=white)
+![Spring Data JPA](https://img.shields.io/badge/Spring_Data_JPA-6DB33F?style=for-the-badge&logo=Spring%20Data%20JPA&logoColor=white)
+![Intellij Idea](https://img.shields.io/badge/Intellij_Idea-0F7BF1?style=for-the-badge&logo=Intellij%20Idea&logoColor=white)
 
 
 #### 🧑‍💻 Developers:
