@@ -6,6 +6,7 @@ import {
 } from 'src/app/interfaces/data-form.interface';
 import { TripModifie } from 'src/app/interfaces/trip_interface';
 import { DataService } from 'src/app/services/data.service';
+import { WindowSizeServiceService } from 'src/app/services/window-size-service.service';
 
 interface Popular {
   id: number;
@@ -22,10 +23,14 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   form2!: FormGroup;
 
+  travellsArray!: TripModifie[];
+  screenWidth!: number;
+
+  visible!: boolean;
+
   formBuilder = inject(FormBuilder);
   dataService = inject(DataService);
-
-  travellsArray!: TripModifie[];
+  windowSizeService = inject(WindowSizeServiceService);
 
   ngOnInit() {
     window.scroll(0, 1009);
@@ -54,6 +59,8 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     this.form2.valueChanges.subscribe((values) => {
       console.log(values); // Valores seleccionados
     });
+
+    this.getScreenWidth();
   }
 
   ngOnDestroy() {
@@ -137,5 +144,19 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         };
       });
     });
+  }
+
+  getScreenWidth() {
+    this.windowSizeService.screenWidth$.subscribe((width: number) => {
+      this.screenWidth = width;
+
+      if (this.screenWidth > 1000) {
+        this.visible = false;
+      }
+    });
+  }
+
+  showDialog() {
+    this.visible = true;
   }
 }

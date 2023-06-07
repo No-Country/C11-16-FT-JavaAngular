@@ -1,5 +1,8 @@
 <section class="travells__container">
-  <article class="travells__left">
+  <article
+    class="travells__left"
+    *ngIf="screenWidth > 1000; else buttonCategories"
+  >
     <h2>Encontrá tu destino</h2>
 
     <div class="travells__filter--provinces">
@@ -53,3 +56,58 @@
 <ng-template #loading class="loading">
   <app-loading style="height: 100%"></app-loading>
 </ng-template>
+
+<ng-template #buttonCategories>
+  <p-button
+    (click)="showDialog()"
+    icon="pi pi-external-link"
+    label="Ver categorías"
+    [style]="{
+      background: '#F9D9DA',
+      border: 'none',
+      color: '#000',
+      boxshadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+      fontsize: '1.5rem',
+      fontweight: 'bold',
+      padding: '1rem 2rem',
+    }"
+  ></p-button>
+</ng-template>
+
+<p-dialog header="Categorías" [(visible)]="visible" [style]="{ width: '95vw' }">
+  <h2>Encontrá tu destino</h2>
+
+  <div class="travells__filter--provinces">
+    <h3>Filtrar por provincia</h3>
+
+    <form [formGroup]="form" class="form__container">
+      <div *ngFor="let option of options">
+        <label>
+          <input type="checkbox" [formControlName]="option.value" />
+          {{ option.name }}
+        </label>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <h3>Filtrar por precios</h3>
+
+    <form>
+      <input type="range" min="10000" max="500000" />
+    </form>
+  </div>
+
+  <div>
+    <h3>Filtrar por cantidad</h3>
+
+    <form [formGroup]="form2" class="form__container">
+      <div *ngFor="let option of options2">
+        <label>
+          <input type="checkbox" [formControlName]="option.value" />
+          {{ option.name }}
+        </label>
+      </div>
+    </form>
+  </div>
+</p-dialog>

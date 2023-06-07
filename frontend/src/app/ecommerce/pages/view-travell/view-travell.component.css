@@ -86,3 +86,13 @@ button {
 .loading {
   height: 100vh;
 }
+
+@media (width <= 550px) {
+  .travell__info {
+    flex-direction: column;
+  }
+}
+@media (width <= 890px) {
+}
+@media (width <= 1000px) {
+}

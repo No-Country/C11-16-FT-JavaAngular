@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CardsTravellsComponent } from '../../components/cards-travells/cards-travells.component';
 import { HomeModule } from '../home/home.module';
 import { EcommerceModule } from '../../ecommerce.module';
+import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 
 @NgModule({
   declarations: [CategoriesComponent],
@@ -16,6 +17,7 @@ import { EcommerceModule } from '../../ecommerce.module';
     ReactiveFormsModule,
     HomeModule,
     EcommerceModule,
+    PrimeNgModule,
   ],
 })
 export class CategoriesModule {}

@@ -30,6 +30,20 @@
   width: 100%;
 }
 
+@media (width <= 550px) {
+  .buttons__container {
+    padding: none;
+    display: flex;
+    width: 100%;
+  }
+
+  .searcher__button {
+    font-size: 1rem;
+    flex-grow: 1;
+    padding: 1.5rem 0;
+  }
+}
+
 @media (width <= 890px) {
   .searcher__container {
     padding-bottom: 1.5rem;
@@ -40,5 +54,8 @@
   .form__searcher {
     justify-content: center;
     margin: 0 auto;
+  }
+
+  .buttons__container {
   }
 }
