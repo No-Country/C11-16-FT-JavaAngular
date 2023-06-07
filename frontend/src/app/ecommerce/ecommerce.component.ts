@@ -1,6 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { AuthService } from '../auth/services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
+import { WindowSizeServiceService } from '../services/window-size-service.service';
 
 @Component({
   selector: 'app-ecommerce',
@@ -10,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class EcommerceComponent implements OnInit {
   authService = inject(AuthService);
   cookieService = inject(CookieService);
+  windowSizeService = inject(WindowSizeServiceService);
 
   ngOnInit(): void {
     if (this.cookieService.check('accessToken')) {
@@ -17,5 +19,10 @@ export class EcommerceComponent implements OnInit {
     } else {
       this.authService.setMyBoolean(false);
     }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event: Event) {
+    this.windowSizeService.setScreenWidth(window.innerWidth);
   }
 }

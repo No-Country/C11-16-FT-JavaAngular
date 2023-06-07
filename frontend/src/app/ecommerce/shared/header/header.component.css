@@ -162,6 +162,12 @@ input::placeholder {
   border-radius: 50%;
 }
 
+@media (width <= 550px) {
+  label {
+    display: none;
+  }
+}
+
 @media (width <= 890px) {
   input {
     height: 50px;
@@ -174,6 +180,24 @@ input::placeholder {
 
   .form__container {
     height: 80px;
+  }
+}
+
+@media (width <= 940px) {
+  .header__auth {
+    bottom: -655px;
+  }
+  .header__auth--options {
+    bottom: -255px;
+  }
+
+  nav {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
   }
 }
 

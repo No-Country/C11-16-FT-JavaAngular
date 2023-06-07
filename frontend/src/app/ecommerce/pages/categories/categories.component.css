@@ -2,7 +2,7 @@
   width: 95%;
   max-width: 1200px;
   min-height: 100vh;
-  margin: 0 auto;
+  margin: 5rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,4 +83,19 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (width <= 550px) {
+}
+@media (width <= 890px) {
+}
+@media (width <= 1000px) {
+  .travells__container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .travells__rigth {
+    padding: 1.5rem;
+  }
 }

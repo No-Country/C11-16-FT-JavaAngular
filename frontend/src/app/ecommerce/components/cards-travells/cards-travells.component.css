@@ -34,3 +34,14 @@ button {
   border: none;
   font-size: 1.2rem;
 }
+
+@media (width <= 550px) {
+  .card__container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  h3 {
+    text-align: center;
+  }
+}

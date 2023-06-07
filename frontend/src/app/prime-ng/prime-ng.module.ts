@@ -1,8 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CalendarModule } from 'primeng/calendar';
 import { RatingModule } from 'primeng/rating';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
+import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
-  exports: [CalendarModule, RatingModule],
+  exports: [
+    CalendarModule,
+    RatingModule,
+    DialogModule,
+    ButtonModule,
+    SidebarModule,
+  ],
 })
 export class PrimeNgModule {}

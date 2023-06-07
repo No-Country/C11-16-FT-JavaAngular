@@ -45,3 +45,9 @@ img {
 .card__info--bold {
   font-weight: 700;
 }
+
+@media (width <= 890px) {
+  h2 {
+    text-align: center;
+  }
+}

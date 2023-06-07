@@ -8,7 +8,7 @@ footer {
 .footer__container {
   width: 95%;
   max-width: 1400px;
-  height: 430px;
+  min-height: 430px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -61,4 +61,35 @@ i {
 
 a {
   color: var(--text-color-secondary);
+}
+
+@media (width <= 1000px) {
+  .myAccount__content {
+    display: none;
+  }
+
+  .categories__content {
+    display: none;
+  }
+}
+
+@media (width <= 650px) {
+  .footer__container {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .contact {
+    text-align: left;
+  }
+
+  .myAccount__content {
+    display: none;
+  }
+
+  .categories__content {
+    display: none;
+  }
 }

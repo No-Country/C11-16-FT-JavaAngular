@@ -54,3 +54,22 @@ img {
   background: rgba(80, 78, 78, 0.43);
   z-index: 1;
 }
+
+@media (width <= 550px) {
+  p {
+    font-size: 1.5rem;
+  }
+
+  button {
+    padding: 1.3rem 3rem;
+  }
+}
+
+@media (width <= 890px) {
+  .card__content {
+    gap: 2rem;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}

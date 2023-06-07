@@ -1,14 +1,16 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/auth/interfaces/user.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataFormFilter } from 'src/app/interfaces/data-form.interface';
 import { DataService } from 'src/app/services/data.service';
+import { WindowSizeServiceService } from 'src/app/services/window-size-service.service';
 
 interface NavItem {
   name: string;
   link: string;
+  mobile?: boolean;
 }
 
 @Component({
@@ -19,22 +21,26 @@ interface NavItem {
 export class HeaderComponent implements OnInit {
   searchForm!: FormGroup;
   showAuthHeader: boolean = false;
-
   dataFilter!: DataFormFilter;
-
   isLoged: boolean = false;
-
   userData!: User;
+  screenWidth!: number;
+  sidebarVisible!: boolean;
+
+  mobileOptions: boolean = false;
 
   formBuilder = inject(FormBuilder);
   dataService = inject(DataService);
   authService = inject(AuthService);
   router = inject(Router);
+  windowSizeService = inject(WindowSizeServiceService);
 
   ngOnInit(): void {
     this.searchForm = this.initSearchForm();
 
     this.isAuthLoged();
+
+    this.getScreenWidth();
   }
 
   navItem: NavItem[] = [
@@ -45,6 +51,7 @@ export class HeaderComponent implements OnInit {
     {
       name: 'recomendaciones',
       link: '/recomendaciones',
+      mobile: true,
     },
     {
       name: 'sobre nosotros',
@@ -91,5 +98,17 @@ export class HeaderComponent implements OnInit {
 
   showMenu() {
     this.showAuth();
+  }
+
+  getScreenWidth() {
+    this.windowSizeService.screenWidth$.subscribe((width: number) => {
+      this.screenWidth = width;
+
+      if (this.screenWidth <= 485) {
+        this.mobileOptions = true;
+      } else {
+        this.mobileOptions = false;
+      }
+    });
   }
 }
