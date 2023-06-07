@@ -53,6 +53,6 @@
 
 @media (width <= 940px) {
   .hero__container {
-    min-height: calc(100vh - 232px);
+    min-height: calc(100vh - 212px);
   }
 }

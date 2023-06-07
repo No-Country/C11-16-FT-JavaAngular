@@ -40,8 +40,13 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.loginForm.invalid) return;
 
+    const now = new Date();
+
+    // Calcula la fecha de expiración sumando 30 minutos a la fecha actual
+    const expirationDate = new Date(now.getTime() + 30 * 60 * 1000);
+
     this.authService.login(this.loginForm.value).subscribe((resp) => {
-      this.cookieServer.set('accessToken', resp.accessToken);
+      this.cookieServer.set('accessToken', resp.accessToken, expirationDate);
       this.getUserData(resp.accessToken);
 
       if (this.router.routerState.snapshot.url === '/registrarse') {
