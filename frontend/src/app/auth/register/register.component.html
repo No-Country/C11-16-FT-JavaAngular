@@ -5,13 +5,10 @@
 
   <picture>
     <img
-      [src]="
-        registerForm.value.profile_picture
-          ? registerForm.value.profile_picture
-          : imageDefault
-      "
-      alt=""
+      [src]="profilePictureSrc ? profilePictureSrc : imageDefault"
+      alt="Foto de perfil"
       width="200"
+      (error)="profilePictureSrc = validatePicture()"
     />
   </picture>
 

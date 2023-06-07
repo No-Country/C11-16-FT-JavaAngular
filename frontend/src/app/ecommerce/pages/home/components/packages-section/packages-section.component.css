@@ -56,6 +56,9 @@ img {
 }
 
 @media (width <= 550px) {
+  .slider__card {
+    height: 314px;
+  }
   p {
     font-size: 1.5rem;
   }

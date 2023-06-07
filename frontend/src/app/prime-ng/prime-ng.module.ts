@@ -4,6 +4,7 @@ import { RatingModule } from 'primeng/rating';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
+import { SliderModule } from 'primeng/slider';
 
 @NgModule({
   exports: [
@@ -12,6 +13,7 @@ import { SidebarModule } from 'primeng/sidebar';
     DialogModule,
     ButtonModule,
     SidebarModule,
+    SliderModule,
   ],
 })
 export class PrimeNgModule {}

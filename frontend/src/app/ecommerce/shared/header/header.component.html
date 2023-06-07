@@ -26,9 +26,9 @@
     <div
       class="header__auth"
       *ngIf="showAuthHeader"
-      [ngClass]="{ 'header__auth--options': userData, header__auth: !userData }"
+      [ngClass]="{ 'header__auth--options': isLoged, header__auth: !isLoged }"
     >
-      <div *ngIf="!userData; else userOptions">
+      <div *ngIf="!isLoged; else userOptions">
         <app-main></app-main>
       </div>
     </div>
@@ -56,6 +56,7 @@
       [src]="userData.profile_picture"
       [alt]="'Foto de perfil de ' + userData.name"
       width="50"
+      (error)="userData.profile_picture = imageDefault"
     />
   </div>
 </ng-template>

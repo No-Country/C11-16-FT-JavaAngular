@@ -29,6 +29,9 @@ export class HeaderComponent implements OnInit {
 
   mobileOptions: boolean = false;
 
+  imageDefault =
+    'https://cdn.discordapp.com/attachments/442011718235848707/1115749841117642852/Diseno_sin_titulo.jpg';
+
   formBuilder = inject(FormBuilder);
   dataService = inject(DataService);
   authService = inject(AuthService);

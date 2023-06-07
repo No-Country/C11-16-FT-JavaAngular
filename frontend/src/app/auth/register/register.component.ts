@@ -4,6 +4,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
+import { Notify } from 'notiflix';
+import { debounceTime } from 'rxjs';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,6 +18,8 @@ export class RegisterComponent implements OnInit {
   imageDefault =
     'https://cdn.discordapp.com/attachments/442011718235848707/1115749841117642852/Diseno_sin_titulo.jpg';
 
+  profilePictureSrc!: string;
+
   authService = inject(AuthService);
   formBuilder = inject(FormBuilder);
   cookieServer = inject(CookieService);
@@ -24,6 +29,14 @@ export class RegisterComponent implements OnInit {
     window.scroll(0, 1009);
 
     this.registerForm = this.initFormRegister();
+
+    this.registerForm
+      .get('profile_picture')
+      ?.valueChanges.pipe(debounceTime(500))
+      .subscribe((value) => {
+        console.log('Nuevo valor de profile_picture:', value);
+        this.profilePictureSrc = value;
+      });
   }
 
   initFormRegister(): FormGroup {
@@ -59,5 +72,13 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(body).subscribe((resp) => {});
     this.route.navigate(['/']);
+  }
+
+  validatePicture(): string {
+    Notify.init({ position: 'right-bottom' });
+
+    Notify.failure('No es una URL de imagen valida');
+
+    return this.imageDefault;
   }
 }
