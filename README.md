@@ -104,7 +104,7 @@ El equipo detrás de Tango Viajes está conformado por talentosos profesionales 
 
 #### 🧑‍💻 QA Testers:
 #### 🛠️ Tech Stack:
-![POSTMAN](https://img.shields.io/badge/-POSTMAN-red)
+![POSTMAN](https://img.shields.io/badge/-POSTMAN-red?style=for-the-badge)
 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|<img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |
 |:-:|:-:|
