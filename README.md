@@ -96,7 +96,7 @@ El equipo detrás de Tango Viajes está conformado por talentosos profesionales 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|<img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |
 |:-:|:-:|
 | **Nicolas Gallardo**| **Jacklyn Cubillan**|
-| <a href="#"><img src="#"/></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="#"><img src="#"/></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+|  <a href="https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |  <a href="https://github.com/jacklync25"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 
 <hr/>
