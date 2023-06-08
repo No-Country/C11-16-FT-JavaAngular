@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../services/auth.service';
@@ -14,6 +14,8 @@ import { debounceTime } from 'rxjs';
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
+
+  viewPassword: boolean = true;
 
   imageDefault =
     'https://cdn.discordapp.com/attachments/442011718235848707/1115749841117642852/Diseno_sin_titulo.jpg';
@@ -34,7 +36,6 @@ export class RegisterComponent implements OnInit {
       .get('profile_picture')
       ?.valueChanges.pipe(debounceTime(500))
       .subscribe((value) => {
-        console.log('Nuevo valor de profile_picture:', value);
         this.profilePictureSrc = value;
       });
   }
@@ -80,5 +81,9 @@ export class RegisterComponent implements OnInit {
     Notify.failure('No es una URL de imagen valida');
 
     return this.imageDefault;
+  }
+
+  showPassword() {
+    this.viewPassword = !this.viewPassword;
   }
 }

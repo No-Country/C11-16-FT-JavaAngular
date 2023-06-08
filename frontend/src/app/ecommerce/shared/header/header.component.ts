@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/auth/interfaces/user.interface';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { DataFormFilter } from 'src/app/interfaces/data-form.interface';
@@ -37,6 +38,7 @@ export class HeaderComponent implements OnInit {
   authService = inject(AuthService);
   router = inject(Router);
   windowSizeService = inject(WindowSizeServiceService);
+  cookieService = inject(CookieService);
 
   ngOnInit(): void {
     this.searchForm = this.initSearchForm();
@@ -91,6 +93,11 @@ export class HeaderComponent implements OnInit {
   }
 
   isAuthLoged() {
+    if (!localStorage.getItem('userData')) {
+      this.authService.setMyBoolean(false);
+      this.cookieService.delete('accessToken');
+    }
+
     this.authService.getMyBoolean().subscribe((resp) => {
       this.userData = JSON.parse(localStorage.getItem('userData')!);
       this.isLoged = resp;

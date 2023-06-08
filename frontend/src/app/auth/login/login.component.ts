@@ -15,6 +15,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
+  viewPassword: boolean = true;
+
   authService = inject(AuthService);
   formBuilder = inject(FormBuilder);
   cookieServer = inject(CookieService);
@@ -61,5 +63,9 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('userData', JSON.stringify(resp));
       this.authService.setMyBoolean(true);
     });
+  }
+
+  showPassword() {
+    this.viewPassword = !this.viewPassword;
   }
 }

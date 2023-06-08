@@ -18,16 +18,20 @@
       placeholder="Correo electrónico"
       formControlName="email"
     />
-    <input
-      type="text"
-      name=""
-      id=""
-      placeholder="Contraseña"
-      formControlName="password"
-    />
+    <div class="password__container">
+      <input
+        [type]="viewPassword ? 'password' : 'text'"
+        placeholder="Contraseña"
+        formControlName="password"
+      />
+      <i
+        [class]="viewPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"
+        (click)="showPassword()"
+      ></i>
+    </div>
     <input type="text" placeholder="Nombre" formControlName="name" />
     <input type="text" placeholder="Apellido" formControlName="lastname" />
-    <input type="text" name="" id="" placeholder="DNI" formControlName="dni" />
+    <input type="text" placeholder="DNI" formControlName="dni" />
     <input
       type="text"
       placeholder="URL de foto de perfil"

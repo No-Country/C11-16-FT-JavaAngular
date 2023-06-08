@@ -6,7 +6,17 @@
       placeholder="Correo Electrónico"
       formControlName="email"
     />
-    <input type="text" placeholder="Contraseña" formControlName="password" />
+    <div class="password__container">
+      <input
+        [type]="viewPassword ? 'password' : 'text'"
+        placeholder="Contraseña"
+        formControlName="password"
+      />
+      <i
+        [class]="viewPassword ? 'pi pi-eye-slash' : 'pi pi-eye'"
+        (click)="showPassword()"
+      ></i>
+    </div>
     <button type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
   </form>
 

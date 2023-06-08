@@ -1,13 +1,18 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
+  OnChanges,
+  OnInit,
   Output,
   ViewChild,
   inject,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
+
+import { Notify } from 'notiflix';
 
 interface City {
   name: string;
@@ -31,7 +36,7 @@ interface DataFilter {
   templateUrl: './form-searcher.component.html',
   styleUrls: ['./form-searcher.component.css'],
 })
-export class FormSearcherComponent {
+export class FormSearcherComponent implements OnInit {
   @Output() data = new EventEmitter<Data>();
 
   @ViewChild('fromSelect') fromSelect!: ElementRef<HTMLSelectElement>;
@@ -49,9 +54,8 @@ export class FormSearcherComponent {
   dataService = inject(DataService);
 
   ngOnInit() {
-    this.getOptions();
-
     this.formData = this.initForm();
+    this.getOptions();
   }
 
   initForm(): FormGroup {
@@ -89,7 +93,13 @@ export class FormSearcherComponent {
   }
 
   searchTravel() {
-    if (this.formData.invalid) return;
+    Notify.init({ position: 'right-bottom' });
+    if (this.formData.invalid) {
+      Notify.failure(
+        'Debe completar todos los campos para realizar la busqueda'
+      );
+      return;
+    }
 
     this.formData.updateValueAndValidity();
 
@@ -116,13 +126,15 @@ export class FormSearcherComponent {
   getOptions() {
     const arrayOptions = JSON.parse(sessionStorage.getItem('datos')!);
 
-    const modifiedResponse = arrayOptions.map((item: any) => {
-      return {
-        ...item,
-        origin: item.origin.toLowerCase(),
-        destination: item.destination.toLowerCase(),
-      };
-    });
+    const modifiedResponse = Array.isArray(arrayOptions)
+      ? arrayOptions.map((item: any) => {
+          return {
+            ...item,
+            origin: item.origin.toLowerCase(),
+            destination: item.destination.toLowerCase(),
+          };
+        })
+      : [];
 
     const uniqueDestinations = [
       ...new Set(modifiedResponse.map((item: any) => item.destination)),
