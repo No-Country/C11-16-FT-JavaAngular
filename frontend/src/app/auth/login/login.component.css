@@ -6,6 +6,7 @@ article {
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
+  padding-top: 2.5rem;
 }
 
 h2 {

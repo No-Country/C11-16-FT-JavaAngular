@@ -5,7 +5,11 @@
 
       <ul class="footer__redes">
         <li *ngFor="let item of redes">
-          <i [class]="item.icon" [title]="item.name"></i>
+          <i
+            [class]="item.icon"
+            [title]="item.name"
+            routerLink="pagina-en-construccion"
+          ></i>
         </li>
       </ul>
 
@@ -20,7 +24,7 @@
     <article class="myAccount__content">
       <h4 class="footer__subtitle">Mi cuenta</h4>
 
-      <p class="click">Ingresar</p>
+      <p class="click" (click)="clickToTop()">Ingresar</p>
       <p class="click" routerLink="registrarse">Registrarse</p>
     </article>
 

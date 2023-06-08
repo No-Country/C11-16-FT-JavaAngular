@@ -15,7 +15,7 @@
         #fromSelect
       >
         <!-- <option value="" selected>Seleccione una provincia</option> -->
-        <option [value]="option.value" *ngFor="let option of cities">
+        <option [value]="option.value" *ngFor="let option of origin">
           {{ option.name }}
         </option>
       </select>
@@ -30,7 +30,7 @@
         <!-- <option value="" selected>Seleccione una provincia</option> -->
         <option
           [value]="option.value"
-          *ngFor="let option of cities"
+          *ngFor="let option of destination"
           [disabled]="option.value === formData.value.from"
         >
           {{ option.name }}

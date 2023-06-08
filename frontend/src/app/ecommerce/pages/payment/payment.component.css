@@ -45,37 +45,7 @@ h2 {
   border-radius: 1.3rem;
   font-size: 1rem;
 }
-.payment__details {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  border: 1px solid #000000;
-  border-radius: 20px;
-  padding: 1rem;
-}
 
-.payment__details--rigth {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.payment__details .price {
-  font-weight: bold;
-  font-size: 2rem;
-}
-.taxes {
-  color: #555353;
-}
-.payment__details button {
-  padding: 0.5rem 1.2rem;
-  background: #f9d9da;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  border: none;
-  font-weight: bold;
-  color: var(--header-color);
-}
 .payment__prices {
   text-align: right;
   display: flex;
@@ -154,6 +124,7 @@ input:valid ~ label {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 form button {
@@ -183,4 +154,18 @@ form button {
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   align-self: flex-end;
+}
+
+@media (width <= 550px) {
+}
+@media (width <= 890px) {
+  h2 {
+    padding-bottom: 2rem;
+  }
+  .payment__info {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+@media (width <= 1000px) {
 }

@@ -21,6 +21,11 @@ interface Data {
   option?: string;
 }
 
+interface DataFilter {
+  name: string;
+  value: string;
+}
+
 @Component({
   selector: 'app-form-searcher',
   templateUrl: './form-searcher.component.html',
@@ -36,37 +41,15 @@ export class FormSearcherComponent {
   minDate = new Date();
   cities!: City[];
 
+  destination!: DataFilter[];
+  origin!: DataFilter[];
+
   formBuilder = inject(FormBuilder);
 
   dataService = inject(DataService);
 
   ngOnInit() {
-    this.cities = [
-      { name: 'Formosa', value: 'formosa' },
-      { name: 'Buenos Aires', value: 'buenos aires' },
-      { name: 'Santa Fe', value: 'santa fe' },
-      { name: 'Salta', value: 'salta' },
-      { name: 'Misiones', value: 'misiones' },
-      { name: 'San Luis', value: 'san luis' },
-      { name: 'San Juan', value: 'san juan' },
-      { name: 'Entre Ríos', value: 'entre rios' },
-      { name: 'Santa Cruz', value: 'santa cruz' },
-      { name: 'Río Negro', value: 'rio negro' },
-      { name: 'Chubut', value: 'chubut' },
-      { name: 'Córdoba', value: 'cordoba' },
-      { name: 'Mendoza', value: 'mendoza' },
-      { name: 'La Rioja', value: 'la rioja' },
-      { name: 'Catamarca', value: 'catamarca' },
-      { name: 'La Pampa', value: 'la pampa' },
-      { name: 'Santiago del Estero', value: 'santiago del estero' },
-      { name: 'Corrientes', value: 'corrientes' },
-      { name: 'Santa Fe', value: 'santa fe' },
-      { name: 'Tucumán', value: 'tucuman' },
-      { name: 'Neuquén', value: 'neuquen' },
-      { name: 'Chaco', value: 'chaco' },
-      { name: 'CABA', value: 'caba' },
-      { name: 'Tierra del Fuego', value: 'tierra del fuego' },
-    ];
+    this.getOptions();
 
     this.formData = this.initForm();
   }
@@ -128,5 +111,38 @@ export class FormSearcherComponent {
 
     this.data.emit(body);
     this.formData.reset();
+  }
+
+  getOptions() {
+    const arrayOptions = JSON.parse(sessionStorage.getItem('datos')!);
+
+    const modifiedResponse = arrayOptions.map((item: any) => {
+      return {
+        ...item,
+        origin: item.origin.toLowerCase(),
+        destination: item.destination.toLowerCase(),
+      };
+    });
+
+    const uniqueDestinations = [
+      ...new Set(modifiedResponse.map((item: any) => item.destination)),
+    ];
+
+    this.destination = uniqueDestinations.map((destination: any) => {
+      return {
+        name: destination.charAt(0).toUpperCase() + destination.slice(1),
+        value: destination,
+      };
+    });
+
+    const uniqueOrigins = [
+      ...new Set(modifiedResponse.map((item: any) => item.origin)),
+    ];
+    this.origin = uniqueOrigins.map((origin: any) => {
+      return {
+        name: origin.charAt(0).toUpperCase() + origin.slice(1),
+        value: origin,
+      };
+    });
   }
 }

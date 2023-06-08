@@ -14,6 +14,7 @@ import { PrivacyPoliciesComponent } from './pages/privacy-policies/privacy-polic
 import { TermAndConditionsComponent } from './pages/term-and-conditions/term-and-conditions.component';
 import { DateTransformPipe } from '../pipes/date-transform.pipe';
 import { LoadingComponent } from './components/loading/loading.component';
+import { PageUnderConstructionComponent } from './pages/page-under-construction/page-under-construction.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     PrivacyPoliciesComponent,
     TermAndConditionsComponent,
     LoadingComponent,
+    PageUnderConstructionComponent,
   ],
   imports: [CommonModule, EcommerceRoutingModule, SharedModule, HomeModule],
   exports: [CardsTravellsComponent, LoadingComponent],

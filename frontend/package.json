@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^16.0.3",
     "@angular/platform-browser-dynamic": "^16.0.3",
     "@angular/router": "^16.0.3",
+    "@types/scriptjs": "^0.0.2",
     "jwt-decode": "^3.1.2",
     "keen-slider": "^6.8.5",
     "ngx-cookie-service": "^16.0.0",
@@ -25,6 +26,7 @@
     "primeicons": "^6.0.1",
     "primeng": "^16.0.0-rc.2",
     "rxjs": "~7.8.0",
+    "scriptjs": "^2.5.9",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

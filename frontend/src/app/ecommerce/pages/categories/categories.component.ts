@@ -20,13 +20,14 @@ interface Popular {
   styleUrls: ['./categories.component.css'],
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
-  form!: FormGroup;
-  form2!: FormGroup;
-
   travellsArray!: TripModifie[];
   screenWidth!: number;
 
   visible!: boolean;
+
+  rangeValues: number[] = [0, 10000];
+
+  formRange!: FormGroup;
 
   formBuilder = inject(FormBuilder);
   dataService = inject(DataService);
@@ -38,29 +39,10 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     this.dataService.formData$.subscribe((formData) => {
       this.searchTrip(formData!);
     });
-    this.form = new FormGroup({});
-
-    for (const option of this.options) {
-      this.form.addControl(option.value, new FormControl(false));
-    }
-
-    // Suscribirse a los cambios del formulario reactivo
-    this.form.valueChanges.subscribe((values) => {
-      console.log(values); // Valores seleccionados
-    });
-
-    this.form2 = new FormGroup({});
-
-    for (const option of this.options2) {
-      this.form2.addControl(option.value, new FormControl(false));
-    }
-
-    // Suscribirse a los cambios del formulario reactivo
-    this.form2.valueChanges.subscribe((values) => {
-      console.log(values); // Valores seleccionados
-    });
 
     this.getScreenWidth();
+
+    this.formRange = this.initFormRange();
   }
 
   ngOnDestroy() {
@@ -95,15 +77,15 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   ];
 
   options2 = [
-    { name: 'Un adulto', value: 'un adulto' },
-    { name: 'Dos adultos', value: 'dos adultos' },
+    { name: 'Un adulto', adults: 1, children: 0 },
+    { name: 'Dos adultos', adults: 2, children: 0 },
     {
-      name: 'Grupo familiar con 2 menores',
-      value: 'grupo familiar con dos menores',
+      name: 'Dos adultos con dos menores',
+      adults: 2,
+      children: 2,
     },
-    { name: 'Pet Friendly', value: 'pet friendly' },
-    { name: 'Cuatro adultos', value: 'cuatro adultos' },
-    { name: 'Pet Friendly', value: 'pet friendly' },
+    { name: 'Pet Friendly', allowspets: true },
+    { name: 'Cuatro adultos', adults: 4, children: 0 },
   ];
 
   popularArray: Popular[] = [
@@ -125,25 +107,27 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   ];
 
   searchTrip(formData: DataFormFilter) {
-    this.dataService.searchTrip(formData).subscribe((data) => {
-      console.log(data);
-
-      this.travellsArray = data.map((trip) => {
-        return {
-          id: trip.id,
-          type: trip.type,
-          origin: trip.origin,
-          destination: trip.destination,
-          price: trip.price,
-          departure: trip.departure,
-          image: trip.image,
-          children: trip.children,
-          adults: trip.adults,
-          pet_friendly: trip.pet_friendly,
-          hotel: trip.hotel,
-        };
+    if (sessionStorage.getItem('datos') && formData === null) {
+      this.travellsArray = JSON.parse(sessionStorage.getItem('datos')!);
+    } else {
+      this.dataService.searchTrip(formData).subscribe((data) => {
+        this.travellsArray = data.map((trip) => {
+          return {
+            id: trip.id,
+            type: trip.type,
+            origin: trip.origin,
+            destination: trip.destination,
+            price: trip.price,
+            departure: trip.departure,
+            image: trip.image,
+            children: trip.children,
+            adults: trip.adults,
+            pet_friendly: trip.pet_friendly,
+            hotel: trip.hotel,
+          };
+        });
       });
-    });
+    }
   }
 
   getScreenWidth() {
@@ -158,5 +142,47 @@ export class CategoriesComponent implements OnInit, OnDestroy {
 
   showDialog() {
     this.visible = true;
+  }
+
+  selectOption(destination?: any) {
+    this.dataService.setFormData({ destination });
+  }
+
+  selectOption2(option: any) {
+    this.dataService.setFormData(null);
+    const formData: DataFormFilter = {};
+
+    if (option.destination) {
+      formData.destination = option.destination;
+    }
+
+    if (option.children) {
+      formData.children = option.children;
+    }
+
+    if (option.adults) {
+      formData.adults = option.adults;
+    }
+
+    if (option.allowspets) {
+      formData.allowspets = option.allowspets;
+    }
+
+    if (option.to) {
+      formData.to = option.to;
+    }
+    this.dataService.setFormData(formData);
+  }
+
+  initFormRange(): FormGroup {
+    return this.formBuilder.group({
+      to: [''],
+    });
+  }
+
+  onRangeChange(event: any) {
+    this.dataService.setFormData(null);
+
+    this.selectOption2(event);
   }
 }
