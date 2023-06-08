@@ -1,6 +1,6 @@
 .hero__container {
   width: 100%;
-  height: calc(100vh - 176px);
+  min-height: calc(100vh - 176px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,11 +35,24 @@
   font-size: 1.5em;
 }
 
+@media (width <= 550px) {
+  .hero__text {
+    font-size: 0.5rem;
+  }
+}
+
 @media (width <= 890px) {
   .hero__container {
-    height: calc(100vh - 156px);
+    min-height: calc(100vh - 156px);
+    gap: 1.5rem;
   }
   .hero__text {
-    font-size: 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (width <= 940px) {
+  .hero__container {
+    min-height: calc(100vh - 212px);
   }
 }

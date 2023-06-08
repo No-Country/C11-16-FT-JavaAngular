@@ -1,0 +1,19 @@
+.conditions__container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+li {
+  list-style: decimal;
+  margin-left: 2rem;
+}

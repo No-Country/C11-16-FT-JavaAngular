@@ -12,11 +12,11 @@ Tango Viajes fue desarrollada utilizando tecnologías de vanguardia para ofrecer
 
 - **Front-end:**
 
-<img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/bootstrap-4.svg" width="40" height="40"/> <img src="https://portfolio-v2-five-zeta.vercel.app/assets/img/primeng-logo.png" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/rxjs-1.svg" width="40" height="40"/> <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white"/>
+<img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" width="40" height="40"/> <img src="https://portfolio-v2-five-zeta.vercel.app/assets/img/primeng-logo.png" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/typescript.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/rxjs-1.svg" width="40" height="40"/> <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white"/> <img src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/express-109.svg" width="40" height="40"/>
 
 - **Back-end:** 
 
-<img src="https://cdn.worldvectorlogo.com/logos/java-4.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/mysql/mysql-official.svg" width="40" height="40"/> 
+<img src="https://cdn.worldvectorlogo.com/logos/java-4.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/mysql/mysql-official.svg" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/intellij-idea-1.svg" width="40" height="40"/> <img src="https://upload.vectorlogo.zone/logos/apache_maven/images/bf250be6-ab7f-4191-b421-8d0acb1dc6e4.svg" width="50" height="50"/> <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/88ffbdd91e1ace1948814b005ca69d3df633bf4a/icons/railway.svg" width="40" height="40"/>
 
 
 ## Colaboradores 👥
@@ -37,10 +37,16 @@ El equipo detrás de Tango Viajes está conformado por talentosos profesionales 
 
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white) 
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=CSS3&logoColor=white) 
-![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=Bootstrap&logoColor=white) 
+![PrimeNg](https://img.shields.io/badge/PrimeNg-E23237?style=for-the-badge&logo=Prime%20ng&logoColor=white) 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white) 
 ![Angular](https://img.shields.io/badge/Angular-E23237?style=for-the-badge&logo=Angular&logoColor=white) 
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=Vercel&logoColor=white)
+![keen-slider](https://img.shields.io/badge/keen_slider-C06B93?style=for-the-badge&logo=keen-slider&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-22A7F2?style=for-the-badge&logo=Visual%20studio&logoColor=white)
+![Nodejs](https://img.shields.io/badge/Node_Js-026E00?style=for-the-badge&logo=Node&logoColor=white)
+![Nodemailer](https://img.shields.io/badge/Nodemailer-29ABE2?style=for-the-badge&logo=Nodemailer&logoColor=white)
+![Notiflix](https://img.shields.io/badge/Notiflix-32C682?style=for-the-badge&logo=Notiflix&logoColor=white)
+![Express](https://img.shields.io/badge/Express-303030?style=for-the-badge&logo=Express&logoColor=white)
 
 #### 🧑‍💻 Developers:
 
@@ -59,6 +65,11 @@ El equipo detrás de Tango Viajes está conformado por talentosos profesionales 
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=Spring%20Boot&logoColor=white)
 ![MYSQL](https://img.shields.io/badge/MySQL-336791?style=for-the-badge&logo=MYSQL&logoColor=white)
 ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-853BCE?style=for-the-badge&logo=Railway&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-6DB33F?style=for-the-badge&logo=Lombok&logoColor=white)
+![Spring Data JPA](https://img.shields.io/badge/Spring_Data_JPA-6DB33F?style=for-the-badge&logo=Spring%20Data%20JPA&logoColor=white)
+![Intellij Idea](https://img.shields.io/badge/Intellij_Idea-0F7BF1?style=for-the-badge&logo=Intellij%20Idea&logoColor=white)
 
 
 #### 🧑‍💻 Developers:
@@ -68,7 +79,7 @@ El equipo detrás de Tango Viajes está conformado por talentosos profesionales 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>| 
 |:-:|:-:|:-:|
 | **Alan Brandan**| **Eder Romero**| **Nicolas Selicki**|
-| <a href="#"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="#"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="#"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <a href="https://github.com/Alan-brandan"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alan-brandan/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/ederromero28"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/eder-romero-04b7621aa/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/nico-slk"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/nicolas-selicki-web-fullstack/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 <hr/>
 
@@ -96,7 +107,7 @@ El equipo detrás de Tango Viajes está conformado por talentosos profesionales 
 | <img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50>|<img src="https://www.nicepng.com/png/full/128-1280406_user-icon-png.png" width=50> |
 |:-:|:-:|
 | **Nicolas Gallardo**| **Jacklyn Cubillan**|
-| <a href="#"><img src="#"/></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="#"><img src="#"/></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <a href="#"></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="#"></a> <a href="#"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 
 <hr/>

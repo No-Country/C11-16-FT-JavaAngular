@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 interface PackageArray {
   id: number;
@@ -28,7 +29,11 @@ interface Travellers {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  ngOnInit(): void {
+    window.scroll(0, 0);
+  }
+
   packageArray: PackageArray[] = [
     {
       id: 1,

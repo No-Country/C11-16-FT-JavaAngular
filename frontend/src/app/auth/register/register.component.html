@@ -1,0 +1,48 @@
+<article>
+  <h2>¡Qué bueno verte por acá!</h2>
+
+  <p>Para registrarte, es necesario que completes los siguientes datos:</p>
+
+  <picture>
+    <img
+      [src]="profilePictureSrc ? profilePictureSrc : imageDefault"
+      alt="Foto de perfil"
+      width="200"
+      (error)="profilePictureSrc = validatePicture()"
+    />
+  </picture>
+
+  <form class="form__auth" [formGroup]="registerForm" (ngSubmit)="register()">
+    <input
+      type="email"
+      placeholder="Correo electrónico"
+      formControlName="email"
+    />
+    <input
+      type="text"
+      name=""
+      id=""
+      placeholder="Contraseña"
+      formControlName="password"
+    />
+    <input type="text" placeholder="Nombre" formControlName="name" />
+    <input type="text" placeholder="Apellido" formControlName="lastname" />
+    <input type="text" name="" id="" placeholder="DNI" formControlName="dni" />
+    <input
+      type="text"
+      placeholder="URL de foto de perfil"
+      formControlName="profile_picture"
+    />
+
+    <button type="submit" [disabled]="registerForm.invalid">Registrate</button>
+  </form>
+
+  <div class="auth__buttons">
+    <button>Registrarse con Google</button>
+    <button>Registrarse con Facebook</button>
+  </div>
+
+  <p>¿Tienes cuenta?</p>
+
+  <button class="auth__register" routerLink="">Inicia sesión aquí</button>
+</article>

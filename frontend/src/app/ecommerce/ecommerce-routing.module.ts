@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EcommerceComponent } from './ecommerce.component';
+import { AuthGuard } from '../auth/guards/auth.guard';
+import { CanRegister } from '../auth/guards/can-register.guard';
 
 const routes: Routes = [
   {
@@ -49,6 +51,8 @@ const routes: Routes = [
         path: 'pago',
         loadChildren: () =>
           import('./pages/payment/payment.module').then((m) => m.PaymentModule),
+        canActivate: [AuthGuard],
+        canMatch: [AuthGuard],
       },
       {
         path: 'resumen',
@@ -56,6 +60,8 @@ const routes: Routes = [
           import('./pages/summary-purchase/summary-purchase.module').then(
             (m) => m.SummaryPurchaseModule
           ),
+        canActivate: [AuthGuard],
+        canMatch: [AuthGuard],
       },
       {
         path: 'paquetes',
@@ -70,6 +76,35 @@ const routes: Routes = [
           import('./pages/view-travell/view-travell.module').then(
             (m) => m.ViewTravellModule
           ),
+      },
+      {
+        path: 'politicas-de-privacidad',
+        loadChildren: () =>
+          import('./pages/privacy-policies/privacy-policies.module').then(
+            (m) => m.PrivacyPoliciesModule
+          ),
+      },
+      {
+        path: 'terminos-y-condiciones',
+        loadChildren: () =>
+          import('./pages/term-and-conditions/term-and-conditions.module').then(
+            (m) => m.TermAndConditionsModule
+          ),
+      },
+      {
+        path: 'registrarse',
+        loadChildren: () =>
+          import('../auth/auth.module').then((m) => m.AuthModule),
+        canActivate: [CanRegister],
+        canMatch: [CanRegister],
+      },
+      {
+        path: 'ayuda',
+        redirectTo: 'preguntas-frecuentes',
+      },
+      {
+        path: 'recomendaciones',
+        redirectTo: 'paquetes',
       },
     ],
   },

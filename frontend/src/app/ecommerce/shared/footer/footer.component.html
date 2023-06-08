@@ -17,11 +17,11 @@
       </div>
     </article>
 
-    <article class="">
+    <article class="myAccount__content">
       <h4 class="footer__subtitle">Mi cuenta</h4>
 
       <p class="click">Ingresar</p>
-      <p class="click">Registrarse</p>
+      <p class="click" routerLink="registrarse">Registrarse</p>
     </article>
 
     <article>
@@ -33,20 +33,31 @@
       <p class="click" routerLink="politcas-de-compra">Políticas de compra</p>
     </article>
 
-    <article>
+    <article class="categories__content">
       <h4 class="footer__subtitle">Categorías</h4>
 
-      <p class="click">Los más elegidos</p>
-      <p class="click">Filtros por precio</p>
-      <p class="click">Filtros por destino</p>
+      <p class="click" routerLink="paquetes">Los más elegidos</p>
+      <p class="click" routerLink="viajes">Filtros por precio</p>
+      <p class="click" routerLink="" (click)="clickToTop()">
+        Filtros por destino
+      </p>
     </article>
 
     <article>
       <h4 class="footer__subtitle">Legales</h4>
 
-      <p class="click">Defensa al consumidor</p>
-      <p class="click">Términos y condiciones</p>
-      <p class="click">Políticas de privacidad</p>
+      <a
+        class="click"
+        href="https://buenosaires.gob.ar/jefaturadegabinete/atencion-ciudadana-y-gestion-comunal/defensa-al-consumidor"
+        target="_blank"
+        >Defensa al consumidor</a
+      >
+      <p class="click" routerLink="terminos-y-condiciones">
+        Términos y condiciones
+      </p>
+      <p class="click" routerLink="politicas-de-privacidad">
+        Políticas de privacidad
+      </p>
     </article>
   </section>
 

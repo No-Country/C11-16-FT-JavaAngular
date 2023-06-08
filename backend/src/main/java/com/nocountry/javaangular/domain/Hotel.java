@@ -20,6 +20,7 @@ public class Hotel {
     private Long id;
     private String title;
     private String ubicacion;
+    private String direccion;
     private String contact;
     private String description;
     private List<String> items;

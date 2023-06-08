@@ -36,16 +36,15 @@ export class CommunityComponent implements AfterViewInit, OnDestroy {
       renderMode: 'precision',
       drag: false,
       breakpoints: {
-        '(min-width: 600px)': {
+        '(max-width: 999px)': {
+          slides: { perView: 1, spacing: 5 },
+        },
+        '(min-width: 1000px)': {
           slides: { perView: 2, spacing: 5 },
         },
-        '(min-width: 1100px)': {
-          slides: { perView: 3, spacing: 10 },
+        '(min-width: 1200px)': {
+          slides: { perView: 3, spacing: 5 },
         },
-      },
-      slides: {
-        perView: 4,
-        spacing: 15,
       },
       created(s) {
         s.moveToIdx(5, true, animation);

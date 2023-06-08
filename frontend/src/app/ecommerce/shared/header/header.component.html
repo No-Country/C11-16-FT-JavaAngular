@@ -1,5 +1,5 @@
 <header>
-  <div class="header__container">
+  <div class="header__container" *ngIf="screenWidth >= 940; else hamburgerMenu">
     <p class="header__logo" [routerLink]="['']">Tango Viajes</p>
 
     <nav>
@@ -15,23 +15,90 @@
       </ul>
     </nav>
 
-    <button class="header__auth--buton" (click)="showAuth()">
+    <button
+      class="header__auth--buton"
+      (click)="showAuth()"
+      *ngIf="!isLoged; else userInfo"
+    >
       Ingresar <i class="pi pi-user"></i>
     </button>
 
-    <div class="header__auth" *ngIf="showAuthHeader">
-      <app-login></app-login>
+    <div
+      class="header__auth"
+      *ngIf="showAuthHeader"
+      [ngClass]="{ 'header__auth--options': isLoged, header__auth: !isLoged }"
+    >
+      <div *ngIf="!isLoged; else userOptions">
+        <app-main></app-main>
+      </div>
     </div>
   </div>
 
   <div class="form__container">
-    <form>
+    <form [formGroup]="searchForm" (ngSubmit)="SearchFormTravel()">
       <label for="searchTravelHeader">¿A dónde te gustaría viajar?</label>
       <input
         type="text"
         id="searchTravelHeader"
-        placeholder="Buscar por palabra, ej: Salta"
+        [placeholder]="
+          screenWidth <= 350 ? 'Ej: Salta' : 'Buscar por palabra, ej: Salta'
+        "
+        formControlName="destination"
       />
     </form>
   </div>
 </header>
+
+<ng-template #userInfo>
+  <div class="user__info" *ngIf="userData" (click)="showMenu()">
+    <h2 *ngIf="!mobileOptions">Hola! {{ userData.name }}</h2>
+    <img
+      [src]="userData.profile_picture"
+      [alt]="'Foto de perfil de ' + userData.name"
+      width="50"
+      (error)="userData.profile_picture = imageDefault"
+    />
+  </div>
+</ng-template>
+
+<ng-template #userOptions>
+  <app-user-menu></app-user-menu>
+</ng-template>
+
+<ng-template #hamburgerMenu>
+  <div class="header__container">
+    <p class="header__logo" [routerLink]="['']">Tango Viajes</p>
+
+    <button
+      class="header__auth--buton"
+      (click)="showAuth()"
+      *ngIf="!isLoged; else userInfo"
+    >
+      Ingresar <i class="pi pi-user"></i>
+    </button>
+
+    <div
+      class="header__auth"
+      *ngIf="showAuthHeader"
+      [ngClass]="{ 'header__auth--options': userData, header__auth: !userData }"
+    >
+      <div *ngIf="!userData; else userOptions">
+        <app-main></app-main>
+      </div>
+    </div>
+  </div>
+
+  <nav>
+    <ul class="header__menu">
+      <li
+        class="header__menu--list"
+        *ngFor="let item of navItem"
+        [routerLink]="[item.link]"
+        routerLinkActive="activeRoute"
+        [ngStyle]="{ display: item.mobile ? 'none' : 'block' }"
+      >
+        {{ item.name | titlecase }}
+      </li>
+    </ul>
+  </nav>
+</ng-template>
