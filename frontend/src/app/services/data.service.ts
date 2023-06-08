@@ -20,6 +20,10 @@ export class DataService {
     destination?: string;
     type?: string;
     departure?: string;
+    children?: number;
+    adults?: number;
+    allowspets?: boolean;
+    to?: number;
   }) {
     const queryParams = new HttpParams({ fromObject: params });
     return this.http.get<Trip[]>(`${this.url}/trip/listAll`, {

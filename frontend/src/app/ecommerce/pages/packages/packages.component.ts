@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { DataFormFilter } from 'src/app/interfaces/data-form.interface';
+import { TripModifie } from 'src/app/interfaces/trip_interface';
+import { DataService } from 'src/app/services/data.service';
 
 interface Travell {
   id: number;
@@ -21,48 +25,45 @@ interface Popular {
   styleUrls: ['./packages.component.css'],
 })
 export class PackagesComponent implements OnInit {
+  travellsArray!: TripModifie[];
+
+  formBuilder = inject(FormBuilder);
+  dataService = inject(DataService);
+
   ngOnInit(): void {
     window.scroll(0, 1009);
+
+    this.searchTrip();
   }
 
-  travellsArray = [
-    {
-      id: 1,
-      title: 'Hotel Llao Llao',
-      location: 'San Carlos de Bariloche',
-      option: 'Dos adultos',
-      days: '7 días - 8 noches',
-      price: 105999,
-      img: '../../../../../../../../assets/images/paquete1.jpg',
-    },
-    {
-      id: 2,
-      title: 'Hotel Titan',
-      location: 'Calafate',
-      option: '2 adultos, 2 menores',
-      days: '10 días - 9 noches',
-      price: 230599,
-      img: '../../../../../../../../assets/images/paquete2.jpg',
-    },
-    {
-      id: 3,
-      title: 'Hotel Madero ',
-      location: 'CABA, Buenos Aires',
-      option: 'Un adulto',
-      days: '5 días - 5 noches',
-      price: 99999,
-      img: '../../../../../../../../assets/images/paquete3.jpg',
-    },
-    {
-      id: 4,
-      title: 'Sofitel La Reserva',
-      location: 'Cardales',
-      option: 'Grupo familiar con 2 menores',
-      days: '6 días - 6 noches',
-      price: 24599,
-      img: '../../../../../../../../assets/images/paquete15.png',
-    },
-  ];
+  searchTrip() {
+    if (sessionStorage.getItem('datos')) {
+      this.travellsArray = JSON.parse(sessionStorage.getItem('datos')!).slice(
+        0,
+        4
+      );
+    } else {
+      this.dataService.searchTrip().subscribe((data) => {
+        this.travellsArray = data
+          .map((trip) => {
+            return {
+              id: trip.id,
+              type: trip.type,
+              origin: trip.origin,
+              destination: trip.destination,
+              price: trip.price,
+              departure: trip.departure,
+              image: trip.image,
+              children: trip.children,
+              adults: trip.adults,
+              pet_friendly: trip.pet_friendly,
+              hotel: trip.hotel,
+            };
+          })
+          .slice(0, 4); // Obtener solo las 5 primeras respuestas
+      });
+    }
+  }
 
   popularArray: Popular[] = [
     {

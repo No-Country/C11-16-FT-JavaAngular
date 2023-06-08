@@ -6,11 +6,8 @@
       <div class="travell__info--left">
         <div>
           <h2>{{ trip.hotel.title }}</h2>
-          <p>
-            Dirección: Ent. A Parque Nacional Iguazú S/N, N3370 Puerto Iguazú,
-            Misiones
-          </p>
-          <p>Teléfono: {{ trip.hotel.contact }}</p>
+          <p><b>Dirección:</b> {{ trip.hotel.ubicacion }}</p>
+          <p><b>Teléfono:</b> {{ trip.hotel.contact }}</p>
         </div>
 
         <div>
@@ -39,7 +36,9 @@
           <p class="taxes">No incluye impuestos</p>
         </div>
 
-        <button routerLink="../../pago">Continuar con la compra</button>
+        <button [routerLink]="'../../pago/' + trip.id">
+          Continuar con la compra
+        </button>
       </div>
     </div>
   </article>

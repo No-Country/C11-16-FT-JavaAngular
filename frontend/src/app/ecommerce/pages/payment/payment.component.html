@@ -1,7 +1,7 @@
 <section class="payment__container">
   <h2>Realizá tu pago</h2>
 
-  <article class="payment__content">
+  <article class="payment__content" *ngIf="trip">
     <h3>Pagar con tarjeta de crédito o débito</h3>
 
     <div class="payment__info">
@@ -12,25 +12,15 @@
           <span>1 Item</span>
         </div>
 
-        <div class="payment__details">
-          <div class="payment__details--left">
-            <h4>Hotel Llao Llao</h4>
-            <p>San Carlos de Bariloche</p>
-            <p>Dos adultos</p>
-            <p>7 días - 8 noches</p>
-          </div>
-
-          <div class="payment__details--rigth">
-            <p class="price">$105.99</p>
-            <p class="taxes">No incluye impuestos</p>
-
-            <button>Ver detalles</button>
-          </div>
-        </div>
+        <app-cards-travells [travell]="trip"></app-cards-travells>
 
         <div class="payment__prices">
-          <p class="payment__taxes">Total impuestos: $xxxx</p>
-          <p class="payment__total">Total a pagar: $xxxx</p>
+          <p class="payment__taxes">
+            Total impuestos: {{ trip.price * taxes | currency : "" : "$" }}
+          </p>
+          <p class="payment__total">
+            Total a pagar: {{ trip.price * 1.21 | currency : "" : "$" }}
+          </p>
         </div>
       </div>
 
@@ -44,64 +34,40 @@
           />
         </div>
 
-        <form action="">
+        <form>
           <div class="input-group">
-            <input
-              required=""
-              type="text"
-              name="text"
-              autocomplete="off"
-              class="input"
-            />
+            <input type="text" name="text" autocomplete="off" class="input" />
             <label class="user-label">Nombre de la tarjeta</label>
           </div>
 
           <div class="input-group">
-            <input
-              required=""
-              type="text"
-              name="text"
-              autocomplete="off"
-              class="input"
-            />
+            <input type="text" name="text" autocomplete="off" class="input" />
             <label class="user-label">Número de la tarjeta</label>
           </div>
 
           <div class="two__input">
             <div class="input-group">
-              <input
-                required=""
-                type="text"
-                name="text"
-                autocomplete="off"
-                class="input"
-              />
+              <input type="text" name="text" autocomplete="off" class="input" />
               <label class="user-label">Vencimiento</label>
             </div>
             <div class="input-group">
-              <input
-                required=""
-                type="text"
-                name="text"
-                autocomplete="off"
-                class="input"
-              />
+              <input type="text" name="text" autocomplete="off" class="input" />
               <label class="user-label">CVV</label>
             </div>
           </div>
 
-          <button type="submit" routerLink="../resumen">CONFIRMAR</button>
+          <button type="submit">CONFIRMAR</button>
         </form>
       </div>
     </div>
   </article>
 
   <article class="payments__others">
-    <h3>
+    <!-- <h3>
       Si abonás con Mercado Pago, presioná Continuar y te redirigiremos a la
       página.
     </h3>
 
-    <button>CONTINUAR</button>
+    <button>CONTINUAR</button> -->
   </article>
 </section>

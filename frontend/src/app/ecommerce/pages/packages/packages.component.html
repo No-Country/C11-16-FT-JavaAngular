@@ -1,8 +1,8 @@
 <section class="packages__container">
   <div class="packages__card" *ngFor="let card of travellsArray">
-    <img [src]="card.img" alt="paquetes de viajes" />
+    <img [src]="card.image" alt="paquetes de viajes" />
     <div class="package__info">
-      <!-- <app-cards-travells [travell]="card"></app-cards-travells> -->
+      <app-cards-travells [travell]="card"></app-cards-travells>
     </div>
   </div>
 </section>

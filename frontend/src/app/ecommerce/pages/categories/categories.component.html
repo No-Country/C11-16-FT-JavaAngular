@@ -8,35 +8,45 @@
     <div class="travells__filter--provinces">
       <h3>Filtrar por provincia</h3>
 
-      <form [formGroup]="form" class="form__container">
-        <div *ngFor="let option of options">
-          <label>
-            <input type="checkbox" [formControlName]="option.value" />
-            {{ option.name }}
-          </label>
-        </div>
-      </form>
+      <div class="form__container">
+        <p
+          class="item__option"
+          *ngFor="let option of options"
+          (click)="selectOption(option.value)"
+        >
+          {{ option.name }}
+        </p>
+      </div>
     </div>
 
     <div>
       <h3>Filtrar por precios</h3>
-
-      <form>
-        <input type="range" min="10000" max="500000" />
+      <p>{{ formRange.value.to | currency : "" : "$" }}</p>
+      <form [formGroup]="formRange" class="slider">
+        <input
+          type="range"
+          formControlName="to"
+          min="0"
+          max="1000000"
+          (change)="onRangeChange(formRange.value)"
+          [title]="formRange.value.to | currency : '' : '$'"
+          class="level"
+        />
       </form>
     </div>
 
     <div>
       <h3>Filtrar por cantidad</h3>
 
-      <form [formGroup]="form2" class="form__container">
-        <div *ngFor="let option of options2">
-          <label>
-            <input type="checkbox" [formControlName]="option.value" />
-            {{ option.name }}
-          </label>
-        </div>
-      </form>
+      <div class="form__container">
+        <p
+          class="item__option"
+          *ngFor="let option of options2"
+          (click)="selectOption2(option)"
+        >
+          {{ option.name }}
+        </p>
+      </div>
     </div>
   </article>
 
@@ -75,39 +85,51 @@
 </ng-template>
 
 <p-dialog header="Categorías" [(visible)]="visible" [style]="{ width: '95vw' }">
-  <h2>Encontrá tu destino</h2>
+  <div class="travell__container--mobile">
+    <h2>Encontrá tu destino</h2>
 
-  <div class="travells__filter--provinces">
-    <h3>Filtrar por provincia</h3>
+    <div class="travells__filter--provinces">
+      <h3>Filtrar por provincia</h3>
 
-    <form [formGroup]="form" class="form__container">
-      <div *ngFor="let option of options">
-        <label>
-          <input type="checkbox" [formControlName]="option.value" />
+      <div class="form__container">
+        <p
+          class="item__option"
+          *ngFor="let option of options"
+          (click)="selectOption(option.value)"
+        >
           {{ option.name }}
-        </label>
+        </p>
       </div>
-    </form>
-  </div>
+    </div>
 
-  <div>
-    <h3>Filtrar por precios</h3>
+    <div>
+      <h3>Filtrar por precios</h3>
+      <p>{{ formRange.value.to | currency : "" : "$" }}</p>
+      <form [formGroup]="formRange" class="slider">
+        <input
+          type="range"
+          formControlName="to"
+          min="0"
+          max="1000000"
+          (change)="onRangeChange(formRange.value)"
+          [title]="formRange.value.to | currency : '' : '$'"
+          class="level"
+        />
+      </form>
+    </div>
 
-    <form>
-      <input type="range" min="10000" max="500000" />
-    </form>
-  </div>
+    <div>
+      <h3>Filtrar por cantidad</h3>
 
-  <div>
-    <h3>Filtrar por cantidad</h3>
-
-    <form [formGroup]="form2" class="form__container">
-      <div *ngFor="let option of options2">
-        <label>
-          <input type="checkbox" [formControlName]="option.value" />
+      <div class="form__container">
+        <p
+          class="item__option"
+          *ngFor="let option of options2"
+          (click)="selectOption2(option)"
+        >
           {{ option.name }}
-        </label>
+        </p>
       </div>
-    </form>
+    </div>
   </div>
 </p-dialog>

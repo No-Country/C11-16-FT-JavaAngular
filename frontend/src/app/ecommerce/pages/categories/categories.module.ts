@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CategoriesRoutingModule } from './categories-routing.module';
 import { CategoriesComponent } from './categories.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { CardsTravellsComponent } from '../../components/cards-travells/cards-travells.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeModule } from '../home/home.module';
 import { EcommerceModule } from '../../ecommerce.module';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
@@ -18,6 +17,7 @@ import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
     HomeModule,
     EcommerceModule,
     PrimeNgModule,
+    FormsModule,
   ],
 })
 export class CategoriesModule {}

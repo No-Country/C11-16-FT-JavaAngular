@@ -46,6 +46,8 @@ li {
 }
 
 .travell__info--left {
+  width: 100%;
+  max-width: 700px;
   justify-content: space-around;
 }
 

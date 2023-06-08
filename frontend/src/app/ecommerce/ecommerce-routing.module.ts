@@ -48,7 +48,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'pago',
+        path: 'pago/:id',
         loadChildren: () =>
           import('./pages/payment/payment.module').then((m) => m.PaymentModule),
         canActivate: [AuthGuard],
@@ -105,6 +105,13 @@ const routes: Routes = [
       {
         path: 'recomendaciones',
         redirectTo: 'paquetes',
+      },
+      {
+        path: 'pagina-en-construccion',
+        loadChildren: () =>
+          import(
+            './pages/page-under-construction/page-under-construction.module'
+          ).then((m) => m.PageUnderConstructionModule),
       },
     ],
   },
