@@ -49,6 +49,5 @@ export class PaymentComponent implements OnInit {
     // if (this.paymentForm.invalid) return;
 
     this.router.navigate(['/resumen/' + id]);
-    console.log(this.paymentForm.value);
   }
 }

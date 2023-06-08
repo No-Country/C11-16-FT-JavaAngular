@@ -9,7 +9,6 @@
     <div class="select">
       <select
         name="from"
-        id=""
         formControlName="from"
         (change)="onFromSelectionChange()"
         #fromSelect
@@ -26,7 +25,7 @@
     <label for="hasta">Hasta</label>
 
     <div class="select">
-      <select name="to" id="" formControlName="to" #toSelect>
+      <select name="to" formControlName="to" #toSelect>
         <!-- <option value="" selected>Seleccione una provincia</option> -->
         <option
           [value]="option.value"

@@ -18,7 +18,6 @@ export class SearcherComponent {
   viewData(data: DataFormFilter) {
     this.formData = data;
     this.formData.type = this.selectedOption;
-    console.log(this.formData);
 
     this.dataService.setFormData(this.formData);
 

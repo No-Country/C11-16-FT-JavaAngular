@@ -10,6 +10,5 @@ export class MainComponent {
 
   handleEvent(event: boolean) {
     this.login = event;
-    console.log(this.login);
   }
 }
