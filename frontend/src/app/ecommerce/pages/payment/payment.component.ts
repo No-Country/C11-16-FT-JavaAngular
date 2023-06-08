@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Trip } from 'src/app/interfaces/trip_interface';
 import { DataService } from 'src/app/services/data.service';
 
@@ -11,10 +12,14 @@ import { DataService } from 'src/app/services/data.service';
 export class PaymentComponent implements OnInit {
   trip!: Trip;
 
+  paymentForm!: FormGroup;
+
   taxes = 0.21;
 
   dataService = inject(DataService);
   route = inject(ActivatedRoute);
+  formBuilder = inject(FormBuilder);
+  router = inject(Router);
 
   ngOnInit(): void {
     window.scroll(0, 1009);
@@ -27,5 +32,23 @@ export class PaymentComponent implements OnInit {
         this.trip = data;
       });
     });
+
+    this.paymentForm = this.initFormPayment();
+  }
+
+  initFormPayment(): FormGroup {
+    return this.formBuilder.group({
+      nameCard: ['', Validators.required],
+      numberCard: ['', Validators.required],
+      expireCard: ['', Validators.required],
+      cvvCard: ['', Validators.required],
+    });
+  }
+
+  sendForm(id: any) {
+    // if (this.paymentForm.invalid) return;
+
+    this.router.navigate(['/resumen/' + id]);
+    console.log(this.paymentForm.value);
   }
 }

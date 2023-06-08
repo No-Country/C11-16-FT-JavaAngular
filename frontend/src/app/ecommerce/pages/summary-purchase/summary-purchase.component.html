@@ -1,25 +1,23 @@
-<section class="summary__container">
+<section class="summary__container" *ngIf="trip">
   <h2>Resumen de tu compra</h2>
 
   <article class="summary__content">
     <div class="summary__left">
-      <h3>Hotel Llao Llao</h3>
+      <h3>{{ trip.hotel.title }}</h3>
 
       <div class="summary__data">
-        <p>
-          Dirección: Av. Ezequiel Bustillo Km. 25, R8401 San Carlos de
-          Bariloche, Río Negro
-        </p>
+        <p>Dirección: {{ trip.hotel.direccion }}</p>
 
         <p>Teléfono: 0294 44-8530</p>
       </div>
 
       <div>
-        <p>Dos adultos</p>
-        <p>7 días - 8 noches</p>
+        <p>{{ trip | optionFilter }}</p>
+        <p>{{ trip.hotel.estadia }}</p>
         <div>
           <p>Fechas:</p>
-          xx/xx al xx/xx
+          {{ trip.arrival | date : "shortDate" }} al
+          {{ trip.arrival | dateTransform | date : "shortDate" }}
         </div>
       </div>
 
@@ -29,14 +27,16 @@
     <div class="summary__rigth">
       <div>
         <p>Abonaste en tu tarjeta Visa</p>
-        <p>Finalizada en xxxx</p>
-        <span class="price">$105.999</span>
+        <p>Finalizada en {{ cardNumber }}</p>
+        <span class="price">{{ trip.price | currency : "" : "$" }}</span>
       </div>
 
       <div>
-        <p class="taxes">Total impuestos: $xxxxx</p>
+        <p class="taxes">
+          Total impuestos: {{ trip.price * 0.21 | currency : "" : "$" }}
+        </p>
 
-        <p>Total abonados: $xxxxx</p>
+        <p>Total abonados: {{ trip.price * 1.21 | currency : "" : "$" }}</p>
       </div>
 
       <button class="summary__email--button">
@@ -44,6 +44,5 @@
       </button>
     </div>
   </article>
-
-  <app-most-chosen [popular]="popularArray"></app-most-chosen>
 </section>
+<app-most-chosen [popular]="popularArray"></app-most-chosen>
