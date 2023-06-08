@@ -55,7 +55,7 @@ const routes: Routes = [
         canMatch: [AuthGuard],
       },
       {
-        path: 'resumen',
+        path: 'resumen/:id',
         loadChildren: () =>
           import('./pages/summary-purchase/summary-purchase.module').then(
             (m) => m.SummaryPurchaseModule

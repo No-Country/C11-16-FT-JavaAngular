@@ -34,24 +34,48 @@
           />
         </div>
 
-        <form>
+        <form [formGroup]="paymentForm" (ngSubmit)="sendForm(trip.id)">
           <div class="input-group">
-            <input type="text" name="text" autocomplete="off" class="input" />
-            <label class="user-label">Nombre de la tarjeta</label>
+            <input
+              type="text"
+              name="text"
+              autocomplete="off"
+              class="input"
+              formControlName="nameCard"
+            />
+            <label class="user-label">Nombre que figura en la tarjeta</label>
           </div>
 
           <div class="input-group">
-            <input type="text" name="text" autocomplete="off" class="input" />
+            <input
+              type="text"
+              name="text"
+              autocomplete="off"
+              class="input"
+              formControlName="numberCard"
+            />
             <label class="user-label">Número de la tarjeta</label>
           </div>
 
           <div class="two__input">
             <div class="input-group">
-              <input type="text" name="text" autocomplete="off" class="input" />
+              <input
+                type="date"
+                name="text"
+                autocomplete="off"
+                class="input"
+                formControlName="expireCard"
+              />
               <label class="user-label">Vencimiento</label>
             </div>
             <div class="input-group">
-              <input type="text" name="text" autocomplete="off" class="input" />
+              <input
+                type="text"
+                name="text"
+                autocomplete="off"
+                class="input"
+                formControlName="cvvCard"
+              />
               <label class="user-label">CVV</label>
             </div>
           </div>

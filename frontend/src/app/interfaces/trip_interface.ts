@@ -34,6 +34,7 @@ export interface Hotel {
   description: string;
   items: string[];
   estadia: string;
+  direccion: string;
 }
 
 export interface TripModifie {

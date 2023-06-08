@@ -31,6 +31,6 @@ import { PageUnderConstructionComponent } from './pages/page-under-construction/
     PageUnderConstructionComponent,
   ],
   imports: [CommonModule, EcommerceRoutingModule, SharedModule, HomeModule],
-  exports: [CardsTravellsComponent, LoadingComponent],
+  exports: [CardsTravellsComponent, LoadingComponent, OptionFilterPipe],
 })
 export class EcommerceModule {}
