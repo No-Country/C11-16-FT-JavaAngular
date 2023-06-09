@@ -44,17 +44,62 @@
               formControlName="nameCard"
             />
             <label class="user-label">Nombre que figura en la tarjeta</label>
+            <div
+              *ngIf="
+                paymentForm.get('nameCard')!.invalid &&
+                paymentForm.get('nameCard')!.errors &&
+                (paymentForm.get('nameCard')!.dirty ||
+                  paymentForm.get('nameCard')!.touched)
+              "
+              class="error-message"
+            >
+              <div
+                *ngIf="paymentForm.get('nameCard')!.hasError('required')"
+                class="error-message-item"
+              >
+                El nombre es obligatorio
+              </div>
+              <div
+                *ngIf="paymentForm.get('nameCard')!.hasError('pattern')"
+                class="error-message-item"
+              >
+                Ingresa solo caracteres alfabéticos
+              </div>
+            </div>
           </div>
 
           <div class="input-group">
             <input
-              type="text"
+              type="number"
               name="text"
               autocomplete="off"
               class="input"
               formControlName="numberCard"
+              maxlength="16"
             />
             <label class="user-label">Número de la tarjeta</label>
+            <div
+              *ngIf="
+                paymentForm.get('numberCard')!.invalid &&
+                paymentForm.get('numberCard')!.errors &&
+                (paymentForm.get('numberCard')!.dirty ||
+                  paymentForm.get('numberCard')!.touched)
+              "
+              class="error-message"
+            >
+              <div
+                *ngIf="paymentForm.get('numberCard')!.hasError('required')"
+                class="error-message-item"
+              >
+                El número de tarjeta es obligatorio
+              </div>
+              <div
+                *ngIf="paymentForm.get('numberCard')!.hasError('pattern')"
+                class="error-message-item"
+              >
+                Ingresa un número de tarjeta válido (16 dígitos)
+              </div>
+            </div>
           </div>
 
           <div class="two__input">
@@ -65,18 +110,58 @@
                 autocomplete="off"
                 class="input"
                 formControlName="expireCard"
+                [min]="dateNow"
               />
               <label class="user-label">Vencimiento</label>
+              <div
+                *ngIf="
+                  paymentForm.get('expireCard')!.invalid &&
+                  paymentForm.get('expireCard')!.errors &&
+                  (paymentForm.get('expireCard')!.dirty ||
+                    paymentForm.get('expireCard')!.touched)
+                "
+                class="error-message"
+              >
+                <div
+                  *ngIf="paymentForm.get('expireCard')!.hasError('required')"
+                  class="error-message-item"
+                >
+                  La fecha de vencimiento es obligatoria
+                </div>
+              </div>
             </div>
             <div class="input-group">
               <input
-                type="text"
+                type="number"
                 name="text"
                 autocomplete="off"
                 class="input"
                 formControlName="cvvCard"
+                maxlength="3"
               />
               <label class="user-label">CVV</label>
+              <div
+                *ngIf="
+                  paymentForm.get('cvvCard')!.invalid &&
+                  paymentForm.get('cvvCard')!.errors &&
+                  (paymentForm.get('cvvCard')!.dirty ||
+                    paymentForm.get('cvvCard')!.touched)
+                "
+                class="error-message"
+              >
+                <div
+                  *ngIf="paymentForm.get('cvvCard')!.hasError('required')"
+                  class="error-message-item"
+                >
+                  El CVV es obligatorio
+                </div>
+                <div
+                  *ngIf="paymentForm.get('cvvCard')!.hasError('pattern')"
+                  class="error-message-item"
+                >
+                  Ingresa un CVV válido (3 dígitos)
+                </div>
+              </div>
             </div>
           </div>
 
