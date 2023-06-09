@@ -10,6 +10,11 @@
       {{ travell.price | currency : "" : "$" }}
     </p>
     <p>No incluye impuestos</p>
-    <button [routerLink]="'../paquete/' + travell.id">Ver detalles</button>
+    <button [routerLink]="'../paquete/' + travell.id" *ngIf="!showDetails">
+      Ver detalles
+    </button>
+    <button [routerLink]="'../../paquete/' + travell.id" *ngIf="showDetails">
+      Ver detalles
+    </button>
   </div>
 </div>

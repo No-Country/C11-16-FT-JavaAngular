@@ -150,8 +150,6 @@ export class SummaryPurchaseComponent implements OnInit {
       card,
     };
 
-    console.log(params);
-
     if (!params) {
       Notify.init({ position: 'right-bottom' });
       Loading.remove();
@@ -166,7 +164,6 @@ export class SummaryPurchaseComponent implements OnInit {
         .subscribe((resp: any) => {
           Loading.remove();
           Notify.init({ position: 'right-bottom' });
-          console.log(resp);
           if (params) {
             Notify.success('Correo enviado correctamente');
           }
