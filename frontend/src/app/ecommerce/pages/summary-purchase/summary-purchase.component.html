@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <button>Descargar comprobante</button>
+      <button (click)="createPdf()">Descargar comprobante</button>
     </div>
 
     <div class="summary__rigth">
@@ -39,7 +39,7 @@
         <p>Total abonados: {{ trip.price * 1.21 | currency : "" : "$" }}</p>
       </div>
 
-      <button class="summary__email--button">
+      <button class="summary__email--button" (click)="envioCorreo()">
         Enviar comprobante por mail
       </button>
     </div>
