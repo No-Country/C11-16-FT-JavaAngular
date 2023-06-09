@@ -92,6 +92,18 @@ header {
   border-radius: 0px 0px 20px 20px;
 }
 
+.pi-times {
+  position: absolute;
+  font-size: 1.5rem;
+  cursor: pointer;
+  right: 1rem;
+  top: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(255, 116, 116);
+  color: white;
+  border-radius: 5px;
+}
+
 .header__auth--options {
   width: 100%;
   max-width: 500px;
