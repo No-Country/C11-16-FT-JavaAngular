@@ -82,6 +82,7 @@
       *ngIf="showAuthHeader"
       [ngClass]="{ 'header__auth--options': userData, header__auth: !userData }"
     >
+      <i class="pi pi-times" (click)="showAuth()"></i>
       <div *ngIf="!userData; else userOptions">
         <app-main></app-main>
       </div>

@@ -29,7 +29,6 @@ export class PaymentComponent implements OnInit {
 
     this.dateNow = fechaString;
 
-    console.log(this.dateNow);
     window.scroll(0, 1009);
 
     this.route.params.subscribe((params) => {
